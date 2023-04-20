@@ -1,6 +1,11 @@
 public class PrivateClinic extends Hospital {
     private String brandName;
 
+    public PrivateClinic(String name, Address address, String brandName) {
+        super(name, address);
+        this.brandName = brandName;
+    }
+
     public String getBrandName() {
         return brandName;
     }
@@ -9,10 +14,6 @@ public class PrivateClinic extends Hospital {
         this.brandName = brandName;
     }
 
-    public PrivateClinic(String name, Address address, String brandName) {
-        super(name, address);
-        this.brandName = brandName;
-    }
     public void printPrivateClinicDetails () {
         System.out.println("\nBrandname of private clinic is " + brandName + " The name of hospital is " + getName() + "\nthe hospital address is" + getAddress());
     }

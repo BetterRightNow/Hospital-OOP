@@ -2,6 +2,11 @@ public class Drugs {
     private String name;
     public boolean prescription;
 
+    public Drugs(String name, boolean prescription) {
+        this.name = name;
+        this.prescription = prescription;
+    }
+
     public String getName() {
         return name;
     }
@@ -10,10 +15,6 @@ public class Drugs {
         this.name = name;
     }
 
-    public Drugs(String name, boolean prescription) {
-        this.name = name;
-        this.prescription = prescription;
-    }
     public void printDrugInfo () {
         if (prescription) {
             System.out.println("\nDrug name is " + name + "\nyou need a prescription for it");

@@ -2,6 +2,11 @@ public class Staff {
     private String Name;
     private String Surname;
 
+    public Staff(String name, String surname) {
+        Name = name;
+        Surname = surname;
+    }
+
     public String getName() {
         return Name;
     }
@@ -15,11 +20,6 @@ public class Staff {
     }
 
     public void setSurname(String surname) {
-        Surname = surname;
-    }
-
-    public Staff(String name, String surname) {
-        Name = name;
         Surname = surname;
     }
 

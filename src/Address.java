@@ -4,6 +4,13 @@ public class Address {
     private String street;
     private int house;
 
+    public Address(String country, String city, String street, int house) {
+        this.country = country;
+        this.city = city;
+        this.street = street;
+        this.house = house;
+    }
+
     public String getCountry() {
         return country;
     }
@@ -36,12 +43,7 @@ public class Address {
         this.house = house;
     }
 
-    public Address(String country, String city, String street, int house) {
-        this.country = country;
-        this.city = city;
-        this.street = street;
-        this.house = house;
-    }
+
     public void printAddress () {
         System.out.println("\nCountry " + country + " City " + city + " street " + street + " " + house);
     }

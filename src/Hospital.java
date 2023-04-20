@@ -3,6 +3,11 @@ public class Hospital {
     private String name;
     private Address address;
 
+    public Hospital(String name, Address address) {
+        this.name = name;
+        this.address = address;
+    }
+
     public String getName() {
         return name;
     }
@@ -13,11 +18,6 @@ public class Hospital {
 
     public Address getAddress() {
         return address;
-    }
-
-    public Hospital(String name, Address address) {
-        this.name = name;
-        this.address = address;
     }
 
     public void printHospitalDetails () {

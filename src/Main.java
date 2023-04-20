@@ -1,4 +1,5 @@
 public class Main {
+    //    constructors moved to the beginning of classes, before getters and setters
     public static void main(String[] args) {
 
 //        working with address class
