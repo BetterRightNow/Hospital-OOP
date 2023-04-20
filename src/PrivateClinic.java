@@ -14,7 +14,8 @@ public class PrivateClinic extends Hospital {
         this.brandName = brandName;
     }
 
-    public void printPrivateClinicDetails () {
-        System.out.println("\nBrandname of private clinic is " + brandName + " The name of hospital is " + getName() + "\nthe hospital address is" + getAddress());
+    @Override
+    public String toString () {
+        return "\nBrandname of private clinic is " + brandName + " The name of hospital is " + getName() + "\nthe hospital address is" + getAddress();
     }
 }

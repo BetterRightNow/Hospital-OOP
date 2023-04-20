@@ -14,7 +14,8 @@ public class Nurses extends Staff{
         this.experience = experience;
     }
 
-    public void printNurseInfo () {
-        System.out.println("\nthe nurse name is" + getName() + " surname " + getSurname() + "\nshe has " + experience + " years of experience");
+    @Override
+    public String toString () {
+        return "\nthe nurse name is" + getName() + " surname " + getSurname() + "\nshe has " + experience + " years of experience";
     }
 }

@@ -14,7 +14,8 @@ public class RegionalHospital extends Hospital {
         this.region = region;
     }
 
-    public void printRegionalHospitalDetails () {
-        System.out.println("\nThe region of regional Hospital is " + region + " The name of hospital is " + getName() + "\nthe hospital address is" + getAddress());
+    @Override
+    public String toString () {
+        return "\nThe region of regional Hospital is " + region + " The name of hospital is " + getName() + "\nthe hospital address is" + getAddress();
     }
 }

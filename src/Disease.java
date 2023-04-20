@@ -13,7 +13,8 @@ public class Disease {
         this.name = name;
     }
 
-    public void printDiseaseInfo () {
-        System.out.println("\nthe name od Disease is " + name);
+    @Override
+    public String toString () {
+        return "\nthe name od Disease is " + name;
     }
 }

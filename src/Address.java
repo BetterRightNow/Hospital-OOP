@@ -43,10 +43,6 @@ public class Address {
         this.house = house;
     }
 
-
-    public void printAddress () {
-        System.out.println("\nCountry " + country + " City " + city + " street " + street + " " + house);
-    }
     @Override
     public String toString () {
         return "\nCountry " + country + " City " + city + " street " + street + " " + house;

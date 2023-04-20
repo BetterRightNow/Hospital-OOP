@@ -14,7 +14,8 @@ public class Doctors extends Staff{
         this.discipline = discipline;
     }
 
-    public void printDoctorDetails () {
-        System.out.println("\nthe doctor name is" + getName() + " surname " + getSurname() + "\ndiscipline is " + discipline);
+    @Override
+    public String toString() {
+        return "\nthe doctor name is " + getName() + " surname " + getSurname() + "\ndiscipline is " + discipline;
     }
 }

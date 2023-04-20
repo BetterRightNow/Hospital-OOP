@@ -14,11 +14,8 @@ public class Antibiotic extends Drugs{
         this.instruction = instruction;
     }
 
-    public void printAntibioticInfo () {
-        if (prescription) {
-            System.out.println("\nIt is an Antibiotic " + getName() + "\nyou need a prescription for it " + "\nhow to use" + instruction);
-        } else {
-            System.out.println("\nIt is an Antibiotic " + getName() + "\nhow to use: " + instruction);
-        }
+    @Override
+    public String toString () {
+        return "\nIt is an Antibiotic " + getName() + (prescription ? "\nyou need a prescription for it " : "")  + "\nhow to use" + instruction;
     }
 }

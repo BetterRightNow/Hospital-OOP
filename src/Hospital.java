@@ -20,7 +20,8 @@ public class Hospital {
         return address;
     }
 
-    public void printHospitalDetails () {
-        System.out.println("\nThe name of hospital is " + name + "\nthe hospital address is " + address);
+    @Override
+    public String toString () {
+        return "\nThe name of hospital is " + name + "\nthe hospital address is " + address;
     }
 }

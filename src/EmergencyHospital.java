@@ -14,7 +14,8 @@ public class EmergencyHospital extends Hospital{
         this.ambulancesNum = ambulancesNum;
     }
 
-    public void printEmergHospInfo () {
-        System.out.println("\nNumber of ambulances is " + ambulancesNum + " The name of hospital is " + getName() + "\nthe hospital address is" + getAddress());
+    @Override
+    public String toString () {
+        return "\nNumber of ambulances is " + ambulancesNum + " The name of hospital is " + getName() + "\nthe hospital address is" + getAddress();
     }
 }

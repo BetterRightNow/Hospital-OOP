@@ -15,14 +15,16 @@ public class Drugs {
         this.name = name;
     }
 
-    public void printDrugInfo () {
-        if (prescription) {
-            System.out.println("\nDrug name is " + name + "\nyou need a prescription for it");
-        } else {
-            System.out.println("\nDrug name is " + name);
-        }
+    public boolean isPrescription() {
+        return prescription;
+    }
+
+    public void setPrescription(boolean prescription) {
+        this.prescription = prescription;
     }
 
     @Override
-    public String toString () {return "\nDrug name is " + prescription;}
+    public String toString () {
+        return "\nDrug name is " + name + (prescription ? "\nyou need a prescription for it" : "");
+    }
 }

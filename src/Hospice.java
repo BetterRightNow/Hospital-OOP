@@ -14,7 +14,8 @@ public class Hospice extends Hospital{
         this.maxPatientsNum = maxPatientsNum;
     }
 
-    public void printHospiceInfo () {
-        System.out.println("\nThe name of hospice is " + getName() + "\nthe hospice address is" + getAddress() + "\nmax number of patients is " + maxPatientsNum);
+    @Override
+    public String toString () {
+        return "\nThe name of hospice is " + getName() + "\nthe hospice address is" + getAddress() + "\nmax number of patients is " + maxPatientsNum;
     }
 }

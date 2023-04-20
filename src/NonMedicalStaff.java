@@ -14,7 +14,8 @@ public class NonMedicalStaff extends Staff{
         this.kindOfStaff = kindOfStaff;
     }
 
-    public void printNonMedicInfo () {
-        System.out.println("\nName" + getName() + " surname " + getSurname() + " working area " + kindOfStaff);
+    @Override
+    public String toString () {
+        return "\nName" + getName() + " surname " + getSurname() + " working area " + kindOfStaff;
     }
 }

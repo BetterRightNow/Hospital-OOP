@@ -23,7 +23,8 @@ public class Staff {
         Surname = surname;
     }
 
-    public void printStafInfo () {
-        System.out.println("\nname " + getName() + " surname " + getSurname());
+    @Override
+    public String toString () {
+        return "\nname " + getName() + " surname " + getSurname();
     }
 }

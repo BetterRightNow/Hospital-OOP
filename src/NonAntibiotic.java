@@ -14,11 +14,8 @@ public class NonAntibiotic extends Drugs{
         this.instruction = instruction;
     }
 
-    public void printNonAntibioticInfo () {
-        if (prescription) {
-            System.out.println("\nIt is not an Antibiotic " + getName() + "\nyou need a prescription for it " + "\nhow to use" + instruction);
-        } else {
-            System.out.println("\nIt is not an Antibiotic " + getName() + "\nhow to use: " + instruction);
-        }
+    @Override
+    public String toString () {
+        return "\nIt is not an Antibiotic " + getName() + (prescription ? "\nyou need a prescription for it " : "") + "\nhow to use" + instruction;
     }
 }
