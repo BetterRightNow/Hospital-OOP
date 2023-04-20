@@ -2,6 +2,7 @@ public class Main {
 
 //    constructors moved to the beginning of classes, before getters and setters
 //    printInfo methods are replaced with overriding toString of each class
+//    Drugs class was redesigned using enum, Antibiotics and NonAntibiotics classes were removed
 
     public static void main(String[] args) {
 
@@ -54,21 +55,13 @@ public class Main {
         System.out.println(disease1);
 
 //        working with Drugs Class
-        Drugs drug1 = new Drugs("Penicillin", true);
-        Drugs drug2 = new Drugs("Aspirin", false);
+        Drugs drug1 = new Drugs("Penicillin", "14 days, 2 times every day", DrugType.ANTIBIOTIC);
+        Drugs drug2 = new Drugs("Aspirin", "3 days, once a day", DrugType.NON_PRESCRIPTION);
+        Drugs drug3 = new Drugs("Vitamin C", "30 days, 3 times every day", DrugType.VITAMIN);
+        Drugs drug4 = new Drugs("Sulfasalazine", "45 days, 6 times every day", DrugType.PRESCRIPTION);
         System.out.println(drug1);
         System.out.println(drug2);
-
-//        working with Antibiotic class
-        Antibiotic ant1 = new Antibiotic("amoxicillin", true, "3 days, 3 time per day");
-        Antibiotic ant2 = new Antibiotic("doxycycline", false, "7 days, 1 time per day");
-        System.out.println(ant1);
-        System.out.println(ant2);
-
-//        working with NonAntibiotic class
-        NonAntibiotic nonAnt1 = new NonAntibiotic("vitamins A", false, "30 days, 3 time per day");
-        NonAntibiotic nonAnt2 = new NonAntibiotic("vitamins с", true, "1 days, 1 time per day");
-        System.out.println(nonAnt1);
-        System.out.println(nonAnt2);
+        System.out.println(drug3);
+        System.out.println(drug4);
     }
 }

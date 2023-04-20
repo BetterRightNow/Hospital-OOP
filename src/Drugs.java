@@ -1,10 +1,12 @@
 public class Drugs {
     private String name;
-    public boolean prescription;
+    private String instruction;
+    private DrugType drugType;
 
-    public Drugs(String name, boolean prescription) {
+    public Drugs(String name, String instruction, DrugType drugType) {
         this.name = name;
-        this.prescription = prescription;
+        this.instruction = instruction;
+        this.drugType = drugType;
     }
 
     public String getName() {
@@ -15,16 +17,32 @@ public class Drugs {
         this.name = name;
     }
 
-    public boolean isPrescription() {
-        return prescription;
+    public String getInstruction() {
+        return instruction;
     }
 
-    public void setPrescription(boolean prescription) {
-        this.prescription = prescription;
+    public void setInstruction(String instruction) {
+        this.instruction = instruction;
+    }
+
+    public DrugType getDrugType() {
+        return drugType;
+    }
+
+    public void setDrugType(DrugType drugType) {
+        this.drugType = drugType;
     }
 
     @Override
     public String toString () {
-        return "\nDrug name is " + name + (prescription ? "\nyou need a prescription for it" : "");
+        String result = "\ndrug name is " + name + "\nhow to use: " + instruction;
+        switch (drugType) {
+            case VITAMIN -> result += "\ntype of drug is vitamin";
+            case ANTIBIOTIC -> result += "\ntype of drug is antibiotic";
+            case PRESCRIPTION -> result += "\nyou need a prescription";
+            case NON_PRESCRIPTION -> result += "\nit's an ordinary drug, you don't need a prescription";
+            default -> result += "\ntype of drug is unknown";
+        }
+        return result;
     }
 }
