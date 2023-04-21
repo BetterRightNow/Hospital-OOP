@@ -7,6 +7,7 @@ public class Main {
 //    Hospital class was redesigned as abstract using protected variables
 //    created abstract class patients, subclasses: ChildPatient, oldPatient
 //    created abstract method prescribeDrug in patients class, and public methods in subclasses using enum Disease and object of Drug class as a parameters
+//    override hashCode() and equals() of Address class
 
 
     public static void main(String[] args) {
