@@ -1,7 +1,7 @@
 //1st class Hospital
-public class Hospital {
-    private String name;
-    private Address address;
+public abstract class Hospital {
+    protected String name;
+    protected Address address;
 
     public Hospital(String name, Address address) {
         this.name = name;
@@ -18,10 +18,5 @@ public class Hospital {
 
     public Address getAddress() {
         return address;
-    }
-
-    @Override
-    public String toString () {
-        return "\nThe name of hospital is " + name + "\nthe hospital address is " + address;
     }
 }

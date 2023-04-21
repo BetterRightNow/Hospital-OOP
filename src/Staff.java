@@ -1,6 +1,6 @@
-public class Staff {
-    private String Name;
-    private String Surname;
+public  abstract class Staff {
+    protected String Name;
+    protected String Surname;
 
     public Staff(String name, String surname) {
         Name = name;
@@ -23,8 +23,4 @@ public class Staff {
         Surname = surname;
     }
 
-    @Override
-    public String toString () {
-        return "\nname " + getName() + " surname " + getSurname();
-    }
 }
