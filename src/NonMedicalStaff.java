@@ -1,21 +1,23 @@
 public class NonMedicalStaff extends Staff{
-    private String kindOfStaff;
+    private StaffType staffType;
 
-    public NonMedicalStaff(String name, String surname, String kindOfStaff) {
+    public NonMedicalStaff(String name, String surname, StaffType staffType) {
         super(name, surname);
-        this.kindOfStaff = kindOfStaff;
+        this.staffType = staffType;
     }
 
-    public String getKindOfStaff() {
-        return kindOfStaff;
+    public StaffType getStaffType() {
+        return staffType;
     }
 
-    public void setKindOfStaff(String kindOfStaff) {
-        this.kindOfStaff = kindOfStaff;
+    public void setStaffType(StaffType staffType) {
+        this.staffType = staffType;
     }
 
     @Override
     public String toString () {
-        return "\nName" + getName() + " surname " + getSurname() + " working area " + kindOfStaff;
+        return "\nName" + getName() +
+                " surname " + getSurname() +
+                " working area " + staffType;
     }
 }

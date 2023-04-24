@@ -16,6 +16,8 @@ public class EmergencyHospital extends Hospital{
 
     @Override
     public String toString () {
-        return "\nNumber of ambulances is " + ambulancesNum + " The name of hospital is " + getName() + "\nthe hospital address is" + getAddress();
+        return "\nNumber of ambulances is " + ambulancesNum +
+                " The name of hospital is " + getName() +
+                "\nthe hospital address is" + getAddress();
     }
 }

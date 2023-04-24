@@ -18,20 +18,30 @@ public class ChildPatient extends Patients{
     public void prescribeDrug (Disease disease, Drugs drugs) {
         switch (disease) {
             case FLU:
-                System.out.println("\nDear " + parentName + " your child " + patName + " " + patSurname + " needs to take drugs " + drugs.getName() + " without prescription");
+                System.out.println("\nDear " + parentName +
+                        " your child " + patName + " " + patSurname +
+                        " needs to take drugs " + drugs.getName() + " without prescription");
                 break;
             case COLDS:
-                System.out.println("\nDear " + parentName + " your child " + patName + " " + patSurname + " needs to take drugs " + drugs.getName() + " and you need a prescription");
+                System.out.println("\nDear " + parentName +
+                        " your child " + patName + " " + patSurname +
+                        " needs to take drugs " + drugs.getName() + " and you need a prescription");
                 break;
             case ANGINA:
                 if (drugs.getDrugType() == DrugType.ANTIBIOTIC) {
-                    System.out.println("\nDear " + parentName + " your child " + patName + " " + patSurname + " needs to take drugs " + drugs.getName() + ", it is an Antibiotic");
+                    System.out.println("\nDear " + parentName +
+                            " your child " + patName + " " + patSurname +
+                            " needs to take drugs " + drugs.getName() + ", it is an Antibiotic");
                 } else {
-                    System.out.println("\nDear " + parentName + " your child " + patName + " " + patSurname + " needs to take drugs " + drugs.getName() + " without prescription");
+                    System.out.println("\nDear " + parentName +
+                            " your child " + patName + " " + patSurname +
+                            " needs to take drugs " + drugs.getName() + " without prescription");
                 }
                 break;
             default:
-                System.out.println("\nDear " + parentName + " your child " + patName + " " + patSurname + " needs to take vitamins C");
+                System.out.println("\nDear " + parentName +
+                        " your child " + patName + " " + patSurname +
+                        " needs to take vitamins C");
                 break;
         }
     }

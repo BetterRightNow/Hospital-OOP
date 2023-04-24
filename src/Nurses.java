@@ -16,6 +16,9 @@ public class Nurses extends Staff{
 
     @Override
     public String toString () {
-        return "\nthe nurse name is " + getName() + " surname " + getSurname() + "\nshe has " + experience + " years of experience";
+        return "\nthe nurse name is " + getName() +
+                " surname " + getSurname() +
+                "\nshe has " + experience +
+                " years of experience";
     }
 }

@@ -16,6 +16,8 @@ public class Doctors extends Staff{
 
     @Override
     public String toString() {
-        return "\nthe doctor name is " + getName() + " surname " + getSurname() + "\ndiscipline is " + discipline;
+        return "\nthe doctor name is " + getName() +
+                " surname " + getSurname() +
+                "\ndiscipline is " + discipline;
     }
 }

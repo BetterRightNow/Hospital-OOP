@@ -16,6 +16,8 @@ public class Hospice extends Hospital{
 
     @Override
     public String toString () {
-        return "\nThe name of hospice is " + getName() + "\nthe hospice address is" + getAddress() + "\nmax number of patients is " + maxPatientsNum;
+        return "\nThe name of hospice is " + getName() +
+                "\nthe hospice address is" + getAddress() +
+                "\nmax number of patients is " + maxPatientsNum;
     }
 }

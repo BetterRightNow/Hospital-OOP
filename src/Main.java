@@ -8,6 +8,10 @@ public class Main {
 //    created abstract class patients, subclasses: ChildPatient, oldPatient
 //    created abstract method prescribeDrug in patients class, and public methods in subclasses using enum Disease and object of Drug class as a parameters
 //    override hashCode() and equals() of Address class
+//    __________________
+//    toString as a few rows
+//    Variables names starts from with a small letter
+//    enum StaffType
 
 
     public static void main(String[] args) {
@@ -45,7 +49,7 @@ public class Main {
         System.out.println(dent1);
 
 //        working with nonMedicalStaff
-        NonMedicalStaff driver1 = new NonMedicalStaff("John", "Doe", "Driver");
+        NonMedicalStaff driver1 = new NonMedicalStaff("John", "Doe", StaffType.DRIVER);
         System.out.println(driver1);
 
 //        working with Drugs Class

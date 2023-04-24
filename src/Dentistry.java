@@ -16,6 +16,8 @@ public class Dentistry extends Hospital{
 
     @Override
     public String toString () {
-        return "\nThe name of hospice is " + getName() + "\nthe hospice address is" + getAddress() + "\nthe doctor fee is " + doctorsFee + " EUR";
+        return "\nThe name of hospice is " + getName() +
+                "\nthe hospice address is" + getAddress() +
+                "\nthe doctor fee is " + doctorsFee + " EUR";
     }
 }

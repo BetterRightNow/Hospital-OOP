@@ -1,26 +1,26 @@
 public  abstract class Staff {
-    protected String Name;
-    protected String Surname;
+    protected String name;
+    protected String surname;
 
     public Staff(String name, String surname) {
-        Name = name;
-        Surname = surname;
+        this.name = name;
+        this.surname = surname;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
 
     public String getSurname() {
-        return Surname;
+        return surname;
     }
 
     public void setSurname(String surname) {
-        Surname = surname;
+        this.surname = surname;
     }
 
 }
