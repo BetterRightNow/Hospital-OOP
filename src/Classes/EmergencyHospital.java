@@ -1,3 +1,5 @@
+package Classes;
+
 public class EmergencyHospital extends Hospital{
     private int ambulancesNum;
 

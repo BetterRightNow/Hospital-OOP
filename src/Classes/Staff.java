@@ -1,3 +1,5 @@
+package Classes;
+
 public  abstract class Staff {
     protected String name;
     protected String surname;

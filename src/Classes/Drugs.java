@@ -1,3 +1,7 @@
+package Classes;
+
+import enums.DrugType;
+
 public class Drugs {
     private String name;
     private String instruction;

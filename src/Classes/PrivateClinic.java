@@ -1,3 +1,5 @@
+package Classes;
+
 public class PrivateClinic extends Hospital {
     private String brandName;
 

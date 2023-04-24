@@ -1,4 +1,6 @@
-//1st class Hospital
+package Classes;
+
+//1st class Classes.Hospital
 public abstract class Hospital {
     protected String name;
     protected Address address;

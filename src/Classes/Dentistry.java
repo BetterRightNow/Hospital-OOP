@@ -1,3 +1,5 @@
+package Classes;
+
 public class Dentistry extends Hospital{
     private int doctorsFee;
 

@@ -1,3 +1,5 @@
+package Classes;
+
 public class Doctors extends Staff{
     private String discipline;
 

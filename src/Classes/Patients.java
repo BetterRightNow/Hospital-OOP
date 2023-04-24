@@ -1,3 +1,7 @@
+package Classes;
+
+import enums.Disease;
+
 abstract public class Patients {
     protected String patName;
     protected String patSurname;

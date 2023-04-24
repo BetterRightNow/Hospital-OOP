@@ -1,3 +1,5 @@
+package Classes;
+
 public class Hospice extends Hospital{
     private int maxPatientsNum;
 

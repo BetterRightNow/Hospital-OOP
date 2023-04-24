@@ -1,3 +1,5 @@
+package Classes;
+
 public class Nurses extends Staff{
     private int experience;
 

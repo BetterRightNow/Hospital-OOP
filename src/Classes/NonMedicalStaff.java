@@ -1,3 +1,7 @@
+package Classes;
+
+import enums.StaffType;
+
 public class NonMedicalStaff extends Staff{
     private StaffType staffType;
 

@@ -1,3 +1,8 @@
+package Classes;
+
+import enums.Disease;
+import enums.DrugType;
+
 public class ChildPatient extends Patients{
     private String parentName;
 

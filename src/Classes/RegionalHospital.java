@@ -1,3 +1,5 @@
+package Classes;
+
 public class RegionalHospital extends Hospital {
     private String region;
 
@@ -16,7 +18,7 @@ public class RegionalHospital extends Hospital {
 
     @Override
     public String toString () {
-        return "\nThe region of regional Hospital is " + region +
+        return "\nThe region of regional hospital is " + region +
                 " The name of hospital is " + getName() +
                 "\nthe hospital address is" + getAddress();
     }
