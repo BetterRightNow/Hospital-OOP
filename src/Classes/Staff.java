@@ -3,6 +3,7 @@ package Classes;
 public  abstract class Staff {
     protected String name;
     protected String surname;
+    private final String alert = "Attention to all patients. An alert is issued. Immediate evacuation initiated!";
 
     public Staff(String name, String surname) {
         this.name = name;
@@ -20,6 +21,10 @@ public  abstract class Staff {
     public String getSurname() {
         return surname;
     }
+
+    public final void setAlert() {
+        System.out.println(alert);
+    };
 
     public void setSurname(String surname) {
         this.surname = surname;

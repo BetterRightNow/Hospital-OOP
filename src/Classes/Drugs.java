@@ -2,7 +2,7 @@ package Classes;
 
 import enums.DrugType;
 
-public class Drugs {
+public final class Drugs {
     private String name;
     private String instruction;
     private DrugType drugType;

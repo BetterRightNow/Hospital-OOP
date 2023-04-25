@@ -23,6 +23,7 @@ public class Main {
 //    created interfaces Inspectable (Patients, OldPatients, ChildPatients) and IPayable (doctors, nurses, NinMedicalStaff)
 //    created Ihospital interface (all hospitals except Dentistry) and ITransportable (abstract Patients, OldPatients, ChildPatients)
 //    created IAdmit interface (Patients, ChildPatients, OldPatients) using IHospital interface object as a parameter
+//    Made Drugs class as a final. In Staff class created final var alert and final method setAlert();
 
 
     public static void main(String[] args) {
@@ -56,6 +57,7 @@ public class Main {
         Doctors doc1 = new Doctors("Robert", "Lewandowski", "Dentistry", 2, 500);
         System.out.println(doc1);
         doc1.calculatePayment();
+        doc1.setAlert();
 
 //        working with Nurses class
         Nurses nurse1 = new Nurses("Eliza", "Kowalska", 4, 300);
