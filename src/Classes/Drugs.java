@@ -6,11 +6,13 @@ public final class Drugs {
     private String name;
     private String instruction;
     private DrugType drugType;
+    private static int drugCount = 0;
 
     public Drugs(String name, String instruction, DrugType drugType) {
         this.name = name;
         this.instruction = instruction;
         this.drugType = drugType;
+        drugCount++;
     }
 
     public String getName() {
@@ -35,6 +37,9 @@ public final class Drugs {
 
     public void setDrugType(DrugType drugType) {
         this.drugType = drugType;
+    }
+    public static void drugCount() {
+        System.out.println("\nDrugs number is " + drugCount);
     }
 
     @Override

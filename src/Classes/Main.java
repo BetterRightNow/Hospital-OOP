@@ -24,6 +24,7 @@ public class Main {
 //    created Ihospital interface (all hospitals except Dentistry) and ITransportable (abstract Patients, OldPatients, ChildPatients)
 //    created IAdmit interface (Patients, ChildPatients, OldPatients) using IHospital interface object as a parameter
 //    Made Drugs class as a final. In Staff class created final var alert and final method setAlert();
+//    added static var and method to Drugs class
 
 
     public static void main(String[] args) {
@@ -82,6 +83,7 @@ public class Main {
         System.out.println(drug2);
         System.out.println(drug3);
         System.out.println(drug4);
+        Drugs.drugCount();
 
 //        working with class ChildPatient
         ChildPatient childPatient1 = new ChildPatient("Piotr", "Ivanov", Disease.FLU, address2, "Kate");
