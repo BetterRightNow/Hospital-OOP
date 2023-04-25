@@ -1,5 +1,6 @@
 package Classes;
 
+import Interfaces.Inspectable;
 import enums.Disease;
 import enums.DrugType;
 import enums.StaffType;
@@ -19,7 +20,7 @@ public class Main {
 //    Variables names starts from with a small letter
 //    enum StaffType
 //    created packages for classes and enums
-//    created interfaces Inspectable and IPayable
+//    created interfaces Inspectable (Patients, OldPatients, ChildPatients) and IPayable (doctors, nurses, NinMedicalStaff)
 
 
     public static void main(String[] args) {
@@ -87,5 +88,8 @@ public class Main {
         oldPatient2.prescribeDrug(oldPatient2.getDisease(), drug1);
         OldPatient oldPatient3 = new OldPatient("Sergey", "Ivanov", Disease.HEALTHY_PATIENT, "Piotr");
         oldPatient3.inspect(oldPatient3.getDisease());
+        Inspectable inspector = (Inspectable) oldPatient3;
+        inspector.inspect(oldPatient3.getDisease());
+
     }
 }

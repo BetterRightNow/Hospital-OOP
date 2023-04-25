@@ -1,8 +1,9 @@
 package Classes;
 
+import Interfaces.Inspectable;
 import enums.Disease;
 
-abstract public class Patients {
+abstract public class Patients implements Inspectable {
     protected String patName;
     protected String patSurname;
     protected Disease disease;
