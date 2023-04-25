@@ -22,6 +22,7 @@ public class Main {
 //    created packages for classes and enums
 //    created interfaces Inspectable (Patients, OldPatients, ChildPatients) and IPayable (doctors, nurses, NinMedicalStaff)
 //    created Ihospital interface (all hospitals except Dentistry) and ITransportable (abstract Patients, OldPatients, ChildPatients)
+//    created IAdmit interface (Patients, ChildPatients, OldPatients) using IHospital interface object as a parameter
 
 
     public static void main(String[] args) {
@@ -87,6 +88,7 @@ public class Main {
         childPatient2.prescribeDrug(childPatient1.getDisease(), drug4);
         childPatient2.inspect(childPatient2.getDisease());
         childPatient2.transport(emergencyHospital1);
+        childPatient2.admit(emergencyHospital1);
 
 //        working with class OldPatient
         OldPatient oldPatient1 = new OldPatient("Marek", "Sobeski", Disease.ANGINA, address4,"Pawel");
@@ -98,6 +100,6 @@ public class Main {
         Inspectable inspector = (Inspectable) oldPatient3;
         inspector.inspect(oldPatient3.getDisease());
         oldPatient1.transport(regionalHospital1);
-
+        oldPatient1.admit(regionalHospital1);
     }
 }

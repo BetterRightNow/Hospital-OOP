@@ -1,12 +1,13 @@
 package Classes;
 
+import Interfaces.IAdmit;
 import Interfaces.IHospital;
 import Interfaces.ITransportable;
 import Interfaces.Inspectable;
 import enums.Disease;
 import enums.DrugType;
 
-public class OldPatient extends Patients implements Inspectable, ITransportable {
+public class OldPatient extends Patients implements Inspectable, ITransportable, IAdmit {
     private String childName;
 
     public OldPatient(String patName, String patSurname, Disease disease, Address address, String childName) {
@@ -34,6 +35,11 @@ public class OldPatient extends Patients implements Inspectable, ITransportable 
     @Override
     public void transport(IHospital iHospital) {
         System.out.println("\nTransporting old patient from home address" + address + "\nto the " + iHospital.hospName() + iHospital.hospAddress());
+    }
+
+    @Override
+    public void admit(IHospital iHospital) {
+        System.out.println("Admitting old patient " + patName + " into " + iHospital.hospName());
     }
 
     @Override
