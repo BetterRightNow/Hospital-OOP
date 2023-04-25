@@ -8,17 +8,18 @@ public class Main {
 
 //    constructors moved to the beginning of classes, before getters and setters
 //    printInfo methods are replaced with overriding toString of each class
-//    Classes.Drugs class was redesigned using enum, Antibiotics and NonAntibiotics classes were removed
+//    Drugs class was redesigned using enum, Antibiotics and NonAntibiotics classes were removed
 //    Stuff class was redesigned as abstract using protected variables
 //    Classes.Hospital class was redesigned as abstract using protected variables
-//    created abstract class patients, subclasses: Classes.ChildPatient, oldPatient
-//    created abstract method prescribeDrug in patients class, and public methods in subclasses using enum enums.Disease and object of Drug class as a parameters
-//    override hashCode() and equals() of Classes.Address class
+//    created abstract class patients, subclasses: ChildPatient, oldPatient
+//    created abstract method prescribeDrug in patients class, and public methods in subclasses using enum Disease and object of Drug class as a parameters
+//    override hashCode() and equals() of Address class
 //    __________________
 //    toString as a few rows
 //    Variables names starts from with a small letter
-//    enum enums.StaffType
+//    enum StaffType
 //    created packages for classes and enums
+//    created interfaces Inspectable and IPayable
 
 
     public static void main(String[] args) {
@@ -35,31 +36,34 @@ public class Main {
         RegionalHospital regionalHospital1 = new RegionalHospital("Warsaw centrum hospital", address1, "the Warsaw centrum");
         System.out.println(regionalHospital1);
 
-//        working with Classes.EmergencyHospital class
+//        working with EmergencyHospital class
         EmergencyHospital emergencyHospital1 = new EmergencyHospital("Main Emergency service", address1, 17);
         System.out.println(emergencyHospital1);
 
-//        working with Classes.Hospice class
+//        working with Hospice class
         Hospice hospice1 = new Hospice("Polish main Hospice", address1, 202);
         System.out.println(hospice1);
 
-//        working with Classes.Doctors class
-        Doctors doc1 = new Doctors("Robert", "Lewandowski", "Dentistry");
+//        working with Doctors class
+        Doctors doc1 = new Doctors("Robert", "Lewandowski", "Dentistry", 2, 500);
         System.out.println(doc1);
+        doc1.calculatePayment();
 
-//        working with Classes.Nurses class
-        Nurses nurse1 = new Nurses("Eliza", "Kowalska", 4);
+//        working with Nurses class
+        Nurses nurse1 = new Nurses("Eliza", "Kowalska", 4, 300);
         System.out.println(nurse1);
+        nurse1.calculatePayment();
 
-//        working with Classes.Dentistry class
+//        working with Dentistry class
         Dentistry dent1 = new Dentistry("Warsaw dentistry", address1, 300);
         System.out.println(dent1);
 
 //        working with nonMedicalStaff
-        NonMedicalStaff driver1 = new NonMedicalStaff("John", "Doe", StaffType.DRIVER);
+        NonMedicalStaff driver1 = new NonMedicalStaff("John", "Doe", StaffType.DRIVER, 2, 200);
         System.out.println(driver1);
+        driver1.calculatePayment();
 
-//        working with Classes.Drugs Class
+//        working with Drugs Class
         Drugs drug1 = new Drugs("Penicillin", "14 days, 2 times every day", DrugType.ANTIBIOTIC);
         Drugs drug2 = new Drugs("Aspirin", "3 days, once a day", DrugType.NON_PRESCRIPTION);
         Drugs drug3 = new Drugs("Vitamin C", "30 days, 3 times every day", DrugType.VITAMIN);
@@ -69,16 +73,19 @@ public class Main {
         System.out.println(drug3);
         System.out.println(drug4);
 
-//        working with class Classes.ChildPatient
+//        working with class ChildPatient
         ChildPatient childPatient1 = new ChildPatient("Piotr", "Ivanov", Disease.FLU, "Kate");
         childPatient1.prescribeDrug(childPatient1.getDisease(), drug2);
         ChildPatient childPatient2 = new ChildPatient("Jan", "Zrajkowski", Disease.COLDS, "Karol");
         childPatient2.prescribeDrug(childPatient1.getDisease(), drug4);
+        childPatient1.inspect(childPatient1.getDisease());
 
-//        working with class Classes.OldPatient
+//        working with class OldPatient
         OldPatient oldPatient1 = new OldPatient("Marek", "Sobeski", Disease.ANGINA, "Pawel");
         oldPatient1.prescribeDrug(oldPatient1.getDisease(), drug1);
         OldPatient oldPatient2 = new OldPatient("Inna", "Kuzmina", Disease.ANGINA, "Alex");
         oldPatient2.prescribeDrug(oldPatient2.getDisease(), drug1);
+        OldPatient oldPatient3 = new OldPatient("Sergey", "Ivanov", Disease.HEALTHY_PATIENT, "Piotr");
+        oldPatient3.inspect(oldPatient3.getDisease());
     }
 }

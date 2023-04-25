@@ -1,11 +1,15 @@
 package Classes;
 
-public class Nurses extends Staff{
-    private int experience;
+import Interfaces.IPayable;
 
-    public Nurses(String name, String surname, int experience) {
+public class Nurses extends Staff implements IPayable {
+    private int experience;;
+    private int standardSalary;
+
+    public Nurses(String name, String surname, int experience, int standardSalary) {
         super(name, surname);
         this.experience = experience;
+        this.standardSalary = standardSalary;
     }
 
     public int getExperience() {
@@ -14,6 +18,20 @@ public class Nurses extends Staff{
 
     public void setExperience(int experience) {
         this.experience = experience;
+    }
+
+    public int getStandardSalary() {
+        return standardSalary;
+    }
+
+    public void setStandardSalary(int standardSalary) {
+        this.standardSalary = standardSalary;
+    }
+
+    @Override
+    public void calculatePayment() {
+        int payment = experience * standardSalary * 2;
+        System.out.println("salary is " + payment + "$");
     }
 
     @Override

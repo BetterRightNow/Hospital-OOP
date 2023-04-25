@@ -1,9 +1,10 @@
 package Classes;
 
+import Interfaces.Inspectable;
 import enums.Disease;
 import enums.DrugType;
 
-public class OldPatient extends Patients{
+public class OldPatient extends Patients implements Inspectable {
     private String childName;
 
     public OldPatient(String patName, String patSurname, Disease disease, String childName) {
@@ -17,6 +18,15 @@ public class OldPatient extends Patients{
 
     public void setChildName(String childName) {
         this.childName = childName;
+    }
+
+    @Override
+    public void inspect(Disease disease) {
+        if (disease == Disease.HEALTHY_PATIENT) {
+            System.out.println("Patient " + patName + " is healthy");
+        } else {
+            System.out.println("Inspecting old patient with disease type: " + disease);
+        }
     }
 
     @Override
