@@ -1,6 +1,8 @@
 package Classes;
 
-public class PrivateClinic extends Hospital {
+import Interfaces.IHospital;
+
+public class PrivateClinic extends Hospital implements IHospital {
     private String brandName;
 
     public PrivateClinic(String name, Address address, String brandName) {
@@ -14,6 +16,16 @@ public class PrivateClinic extends Hospital {
 
     public void setBrandName(String brandName) {
         this.brandName = brandName;
+    }
+
+    @Override
+    public Address hospAddress() {
+        return address;
+    }
+
+    @Override
+    public String hospName() {
+        return name;
     }
 
     @Override

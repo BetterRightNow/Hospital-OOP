@@ -1,14 +1,16 @@
 package Classes;
 
+import Interfaces.IHospital;
+import Interfaces.ITransportable;
 import Interfaces.Inspectable;
 import enums.Disease;
 import enums.DrugType;
 
-public class ChildPatient extends Patients implements Inspectable {
+public class ChildPatient extends Patients implements Inspectable, ITransportable {
     private String parentName;
 
-    public ChildPatient(String patName, String patSurname, Disease disease, String parentName) {
-        super(patName, patSurname, disease);
+    public ChildPatient(String patName, String patSurname, Disease disease, Address address, String parentName) {
+        super(patName, patSurname, disease, address);
         this.parentName = parentName;
     }
 
@@ -27,6 +29,11 @@ public class ChildPatient extends Patients implements Inspectable {
         } else {
             System.out.println("Inspecting child patient with disease type: " + disease);
         }
+    }
+
+    @Override
+    public void transport(IHospital iHospital) {
+        System.out.println("\nTransporting child patient from home address" + address + "\nto the " + iHospital.hospName() + iHospital.hospAddress());
     }
 
     @Override

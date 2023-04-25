@@ -1,6 +1,8 @@
 package Classes;
 
-public class RegionalHospital extends Hospital {
+import Interfaces.IHospital;
+
+public class RegionalHospital extends Hospital implements IHospital {
     private String region;
 
     public RegionalHospital(String name, Address address, String region) {
@@ -14,6 +16,16 @@ public class RegionalHospital extends Hospital {
 
     public void setRegion(String region) {
         this.region = region;
+    }
+
+    @Override
+    public Address hospAddress() {
+        return address;
+    }
+
+    @Override
+    public String hospName() {
+        return name;
     }
 
     @Override

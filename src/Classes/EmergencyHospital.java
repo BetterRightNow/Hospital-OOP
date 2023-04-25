@@ -1,6 +1,8 @@
 package Classes;
 
-public class EmergencyHospital extends Hospital{
+import Interfaces.IHospital;
+
+public class EmergencyHospital extends Hospital implements IHospital {
     private int ambulancesNum;
 
     public EmergencyHospital(String name, Address address, int ambulancesNum) {
@@ -14,6 +16,16 @@ public class EmergencyHospital extends Hospital{
 
     public void setAmbulancesNum(int ambulancesNum) {
         this.ambulancesNum = ambulancesNum;
+    }
+
+    @Override
+    public Address hospAddress() {
+        return address;
+    }
+
+    @Override
+    public String hospName() {
+        return name;
     }
 
     @Override

@@ -1,17 +1,20 @@
 package Classes;
 
+import Interfaces.ITransportable;
 import Interfaces.Inspectable;
 import enums.Disease;
 
-abstract public class Patients implements Inspectable {
+abstract public class Patients implements Inspectable, ITransportable {
     protected String patName;
     protected String patSurname;
     protected Disease disease;
+    protected Address address;
 
-    public Patients(String patName, String patSurname, Disease disease) {
+    public Patients(String patName, String patSurname, Disease disease, Address address) {
         this.patName = patName;
         this.patSurname = patSurname;
         this.disease = disease;
+        this.address = address;
     }
 
     public String getPatName() {
@@ -36,6 +39,14 @@ abstract public class Patients implements Inspectable {
 
     public void setDisease(Disease disease) {
         this.disease = disease;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     abstract protected void prescribeDrug(Disease disease, Drugs drugs);

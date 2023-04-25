@@ -1,6 +1,6 @@
 package Classes;
 
-public class Dentistry extends Hospital{
+public class Dentistry extends Hospital {
     private int doctorsFee;
 
     public Dentistry(String name, Address address, int doctorsFee) {

@@ -1,6 +1,8 @@
 package Classes;
 
-public class Hospice extends Hospital{
+import Interfaces.IHospital;
+
+public class Hospice extends Hospital implements IHospital {
     private int maxPatientsNum;
 
     public Hospice(String name, Address address, int maxPatientsNum) {
@@ -14,6 +16,16 @@ public class Hospice extends Hospital{
 
     public void setMaxPatientsNum(int maxPatientsNum) {
         this.maxPatientsNum = maxPatientsNum;
+    }
+
+    @Override
+    public Address hospAddress() {
+        return address;
+    }
+
+    @Override
+    public String hospName() {
+        return name;
     }
 
     @Override

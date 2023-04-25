@@ -21,6 +21,7 @@ public class Main {
 //    enum StaffType
 //    created packages for classes and enums
 //    created interfaces Inspectable (Patients, OldPatients, ChildPatients) and IPayable (doctors, nurses, NinMedicalStaff)
+//    created Ihospital interface (all hospitals except Dentistry) and ITransportable (abstract Patients, OldPatients, ChildPatients)
 
 
     public static void main(String[] args) {
@@ -28,6 +29,11 @@ public class Main {
 //        working with address class
         Address address1 = new Address("Poland", "Warsaw", "Marshalkovska", 1);
         System.out.println(address1);
+        Address address2 = new Address("Poland", "Krakow", "Krola",3);
+        Address address3 = new Address("Poland", "Wroclaw", "Jadwigi",7);
+        Address address4 = new Address("Poland", "Gdansk", "Mieszko",77);
+        Address address5 = new Address("Poland", "Szczecin", "Kazimira",2);
+        Address address6 = new Address("Poland", "Jasna Gora", "Konrada",41);
 
 //        working with privateClinic class
         PrivateClinic privateClinic1 = new PrivateClinic("First private Clinic", address1, "Luxmed");
@@ -75,21 +81,23 @@ public class Main {
         System.out.println(drug4);
 
 //        working with class ChildPatient
-        ChildPatient childPatient1 = new ChildPatient("Piotr", "Ivanov", Disease.FLU, "Kate");
+        ChildPatient childPatient1 = new ChildPatient("Piotr", "Ivanov", Disease.FLU, address2, "Kate");
         childPatient1.prescribeDrug(childPatient1.getDisease(), drug2);
-        ChildPatient childPatient2 = new ChildPatient("Jan", "Zrajkowski", Disease.COLDS, "Karol");
+        ChildPatient childPatient2 = new ChildPatient("Jan", "Zrajkowski", Disease.COLDS, address3,"Karol");
         childPatient2.prescribeDrug(childPatient1.getDisease(), drug4);
-        childPatient1.inspect(childPatient1.getDisease());
+        childPatient2.inspect(childPatient2.getDisease());
+        childPatient2.transport(emergencyHospital1);
 
 //        working with class OldPatient
-        OldPatient oldPatient1 = new OldPatient("Marek", "Sobeski", Disease.ANGINA, "Pawel");
+        OldPatient oldPatient1 = new OldPatient("Marek", "Sobeski", Disease.ANGINA, address4,"Pawel");
         oldPatient1.prescribeDrug(oldPatient1.getDisease(), drug1);
-        OldPatient oldPatient2 = new OldPatient("Inna", "Kuzmina", Disease.ANGINA, "Alex");
+        OldPatient oldPatient2 = new OldPatient("Inna", "Kuzmina", Disease.ANGINA, address5,"Alex");
         oldPatient2.prescribeDrug(oldPatient2.getDisease(), drug1);
-        OldPatient oldPatient3 = new OldPatient("Sergey", "Ivanov", Disease.HEALTHY_PATIENT, "Piotr");
+        OldPatient oldPatient3 = new OldPatient("Sergey", "Ivanov", Disease.HEALTHY_PATIENT, address6,"Piotr");
         oldPatient3.inspect(oldPatient3.getDisease());
         Inspectable inspector = (Inspectable) oldPatient3;
         inspector.inspect(oldPatient3.getDisease());
+        oldPatient1.transport(regionalHospital1);
 
     }
 }
