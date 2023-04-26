@@ -1,11 +1,11 @@
 package Classes;
 
-import Interfaces.IHospital;
+import Interfaces.HospitalInformation;
 
-public class EmergencyHospital extends Hospital implements IHospital {
+public class EmergencyHospitalInformation extends Hospital implements HospitalInformation {
     private int ambulancesNum;
 
-    public EmergencyHospital(String name, Address address, int ambulancesNum) {
+    public EmergencyHospitalInformation(String name, Address address, int ambulancesNum) {
         super(name, address);
         this.ambulancesNum = ambulancesNum;
     }

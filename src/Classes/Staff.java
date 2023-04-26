@@ -22,9 +22,9 @@ public  abstract class Staff {
         return surname;
     }
 
-    public final void setAlert() {
+    public final void alert() {
         System.out.println(alert);
-    };
+    }
 
     public void setSurname(String surname) {
         this.surname = surname;

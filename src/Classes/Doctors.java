@@ -1,8 +1,8 @@
 package Classes;
 
-import Interfaces.IPayable;
+import Interfaces.SalaryCalculator;
 
-public class Doctors extends Staff implements IPayable {
+public class Doctors extends Staff implements SalaryCalculator {
     private String discipline;
     private int doctorsCategory;
     private int standardSalary;

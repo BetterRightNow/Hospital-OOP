@@ -1,11 +1,11 @@
 package Classes;
 
-import Interfaces.IAdmit;
+import Interfaces.HospitalAdmission;
 import Interfaces.ITransportable;
-import Interfaces.Inspectable;
+import Interfaces.PatientInspection;
 import enums.Disease;
 
-abstract public class Patients implements Inspectable, ITransportable, IAdmit {
+abstract public class Patients implements PatientInspection, ITransportable, HospitalAdmission {
     protected String patName;
     protected String patSurname;
     protected Disease disease;

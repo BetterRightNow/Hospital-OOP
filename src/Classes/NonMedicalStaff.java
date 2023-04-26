@@ -1,9 +1,9 @@
 package Classes;
 
-import Interfaces.IPayable;
+import Interfaces.SalaryCalculator;
 import enums.StaffType;
 
-public class NonMedicalStaff extends Staff implements IPayable {
+public class NonMedicalStaff extends Staff implements SalaryCalculator {
     private StaffType staffType;
     private int staffCategory;
     private int standardSalary;

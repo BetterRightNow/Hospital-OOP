@@ -1,9 +1,9 @@
 package Classes;
 
-import Interfaces.IPayable;
+import Interfaces.SalaryCalculator;
 
-public class Nurses extends Staff implements IPayable {
-    private int experience;;
+public class Nurses extends Staff implements SalaryCalculator {
+    private int experience;
     private int standardSalary;
 
     public Nurses(String name, String surname, int experience, int standardSalary) {

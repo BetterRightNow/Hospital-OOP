@@ -1,8 +1,8 @@
 package Classes;
 
-import Interfaces.IHospital;
+import Interfaces.HospitalInformation;
 
-public class PrivateClinic extends Hospital implements IHospital {
+public class PrivateClinic extends Hospital implements HospitalInformation {
     private String brandName;
 
     public PrivateClinic(String name, Address address, String brandName) {

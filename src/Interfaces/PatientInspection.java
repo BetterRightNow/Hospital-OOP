@@ -2,6 +2,6 @@ package Interfaces;
 
 import enums.Disease;
 
-public interface Inspectable {
+public interface PatientInspection {
     void inspect(Disease disease);
 }

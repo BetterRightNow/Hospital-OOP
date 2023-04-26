@@ -1,11 +1,11 @@
 package Classes;
 
-import Interfaces.IHospital;
+import Interfaces.HospitalInformation;
 
-public class RegionalHospital extends Hospital implements IHospital {
+public class RegionalHospitalInformation extends Hospital implements HospitalInformation {
     private String region;
 
-    public RegionalHospital(String name, Address address, String region) {
+    public RegionalHospitalInformation(String name, Address address, String region) {
         super(name, address);
         this.region = region;
     }

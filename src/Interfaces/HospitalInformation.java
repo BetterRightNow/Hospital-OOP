@@ -2,7 +2,7 @@ package Interfaces;
 
 import Classes.Address;
 
-public interface IHospital {
+public interface HospitalInformation {
     String hospName();
     Address hospAddress();
 }

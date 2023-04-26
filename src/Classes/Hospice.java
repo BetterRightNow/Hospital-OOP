@@ -1,8 +1,8 @@
 package Classes;
 
-import Interfaces.IHospital;
+import Interfaces.HospitalInformation;
 
-public class Hospice extends Hospital implements IHospital {
+public class Hospice extends Hospital implements HospitalInformation {
     private int maxPatientsNum;
 
     public Hospice(String name, Address address, int maxPatientsNum) {

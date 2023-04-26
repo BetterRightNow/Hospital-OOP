@@ -1,5 +1,5 @@
 package Interfaces;
 
-public interface IPayable {
+public interface SalaryCalculator {
     void calculatePayment ();
 }
