@@ -1,11 +1,12 @@
 package Classes;
 
+import Exceptions.InvalidCountryException;
 import Interfaces.HospitalInformation;
 
 public class RegionalHospitalInformation extends Hospital implements HospitalInformation {
     private String region;
 
-    public RegionalHospitalInformation(String name, Address address, String region) {
+    public RegionalHospitalInformation(String name, Address address, String region) throws InvalidCountryException {
         super(name, address);
         this.region = region;
     }

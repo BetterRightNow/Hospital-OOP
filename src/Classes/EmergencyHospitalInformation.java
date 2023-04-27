@@ -1,11 +1,12 @@
 package Classes;
 
+import Exceptions.InvalidCountryException;
 import Interfaces.HospitalInformation;
 
 public class EmergencyHospitalInformation extends Hospital implements HospitalInformation {
     private int ambulancesNum;
 
-    public EmergencyHospitalInformation(String name, Address address, int ambulancesNum) {
+    public EmergencyHospitalInformation(String name, Address address, int ambulancesNum) throws InvalidCountryException {
         super(name, address);
         this.ambulancesNum = ambulancesNum;
     }

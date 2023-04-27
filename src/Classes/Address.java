@@ -1,12 +1,18 @@
 package Classes;
 
+
+import Exceptions.InvalidAddressException;
+
 public class Address {
     private String country;
     private String city;
     private String street;
     private int house;
 
-    public Address(String country, String city, String street, int house) {
+    public Address(String country, String city, String street, int house)  throws InvalidAddressException {
+        if (house <= 0 || country == null || city == null || street == null) {
+            throw new InvalidAddressException("Invalid address (shouldn't be  null or <= 0)");
+        }
         this.country = country;
         this.city = city;
         this.street = street;

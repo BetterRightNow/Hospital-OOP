@@ -1,9 +1,11 @@
 package Classes;
 
+import Exceptions.InvalidCountryException;
+
 public class Dentistry extends Hospital {
     private int doctorsFee;
 
-    public Dentistry(String name, Address address, int doctorsFee) {
+    public Dentistry(String name, Address address, int doctorsFee) throws InvalidCountryException {
         super(name, address);
         this.doctorsFee = doctorsFee;
     }

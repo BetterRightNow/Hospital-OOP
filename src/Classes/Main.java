@@ -1,20 +1,27 @@
 package Classes;
 
-import Interfaces.PatientInspection;
+import Exceptions.InvalidAddressException;
+import Exceptions.InvalidCountryException;
 import enums.Disease;
 import enums.DrugType;
 import enums.StaffType;
 
 public class Main {
-    public static void main(String[] args) {
+
+//  Interfaces were renamed
+//  created custom exceptions InvalidAddressException (not null) and InvalidCountryException (only Poland)
+
+
+    public static void main(String[] args) throws InvalidAddressException, InvalidCountryException {
 
 //        working with address class
-        Address address1 = new Address("Poland", "Warsaw", "Marshalkovska", 1);
+
+        Address address1 = new Address("Poland", "Warsaw", "Marshalkovska", 7);
         System.out.println(address1);
         Address address2 = new Address("Poland", "Krakow", "Krola",3);
         Address address3 = new Address("Poland", "Wroclaw", "Jadwigi",7);
         Address address4 = new Address("Poland", "Gdansk", "Mieszko",77);
-        Address address5 = new Address("Poland", "Szczecin", "Kazimira",2);
+        Address address5 = new Address("Poland", "Szczecin", "Kazimira",7);
         Address address6 = new Address("Poland", "Jasna Gora", "Konrada",41);
 
 //        working with privateClinic class

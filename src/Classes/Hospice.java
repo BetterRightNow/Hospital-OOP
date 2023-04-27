@@ -1,11 +1,12 @@
 package Classes;
 
+import Exceptions.InvalidCountryException;
 import Interfaces.HospitalInformation;
 
 public class Hospice extends Hospital implements HospitalInformation {
     private int maxPatientsNum;
 
-    public Hospice(String name, Address address, int maxPatientsNum) {
+    public Hospice(String name, Address address, int maxPatientsNum) throws InvalidCountryException {
         super(name, address);
         this.maxPatientsNum = maxPatientsNum;
     }
