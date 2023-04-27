@@ -7,9 +7,9 @@ import enums.DrugType;
 import enums.StaffType;
 
 public class Main {
-
-//  Interfaces were renamed
-//  created custom exceptions InvalidAddressException (not null) and InvalidCountryException (only Poland)
+//    Interfaces were renamed
+//    created custom exceptions InvalidAddressException (not null) and InvalidCountryException (only Poland)
+//    created saveToFile method writing drug object toString() to .txt file. Used try-catch with resources.
 
 
     public static void main(String[] args) throws InvalidAddressException, InvalidCountryException {
@@ -70,6 +70,7 @@ public class Main {
         System.out.println(drug3);
         System.out.println(drug4);
         Drugs.drugCount();
+        drug4.saveToFile("drugList.txt");
 
 //        working with class ChildPatient
         ChildPatient childPatient1 = new ChildPatient("Piotr", "Ivanov", Disease.FLU, address2, "Kate");

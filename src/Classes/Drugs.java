@@ -2,6 +2,9 @@ package Classes;
 
 import enums.DrugType;
 
+import java.io.FileWriter;
+import java.io.IOException;
+
 public final class Drugs {
     private String name;
     private String instruction;
@@ -40,6 +43,18 @@ public final class Drugs {
     }
     public static void drugCount() {
         System.out.println("\nDrugs number is " + drugCount);
+    }
+
+    public void saveToFile(String fileName) {
+        try {
+            FileWriter writer = new FileWriter(fileName, true); // Create a new FileWriter object with the given fileName and append mode set to true
+            writer.write(this.toString()); // Write the string representation of the Drugs object to the file
+            writer.close(); // Close the FileWriter object
+            System.out.println("Drug saved to file: " + fileName);
+        } catch (IOException e) { // Catch IOException
+            System.out.println("Failed to save drug to file: " + fileName);
+            e.printStackTrace(); // Print the stack trace of the caught exception to the console
+        }
     }
 
     @Override
