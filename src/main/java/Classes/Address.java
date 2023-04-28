@@ -19,9 +19,8 @@ public class Address {
         Configurator.initialize(null, "log4j2.xml");
         addressLogger.info("Application started");
         if (house <= 0 || country == null || city == null || street == null) {
-            String errorMessage = "Invalid address (shouldn't be  null or <= 0)";
-            addressLogger.error(errorMessage);
-            throw new InvalidAddressException(errorMessage);
+            addressLogger.error("Invalid address input. It shouldn't be null or <= 0");
+            throw new InvalidAddressException("Invalid address");
         }
         this.country = country;
         this.city = city;

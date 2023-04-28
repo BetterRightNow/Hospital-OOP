@@ -3,15 +3,22 @@ package Classes;
 import Exceptions.NonMedicalSalaryException;
 import Interfaces.SalaryCalculator;
 import enums.StaffType;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.core.config.Configurator;
 
 public class NonMedicalStaff extends Staff implements SalaryCalculator {
+    public Logger nonMedicalSalaryLogger = LogManager.getLogger();
     private StaffType staffType;
     private int staffCategory;
     private int standardSalary;
 
     public NonMedicalStaff(String name, String surname, StaffType staffType, int staffCategory, int standardSalary) throws NonMedicalSalaryException {
         super(name, surname);
+        Configurator.initialize(null,"log4j2.xml");
+        nonMedicalSalaryLogger.info("application started");
         if (standardSalary < 50) {
+            nonMedicalSalaryLogger.error("Invalid standard salary input");
             throw new NonMedicalSalaryException("Standard salary of non medical staff should be more than 50$");
         }
         this.staffType = staffType;
