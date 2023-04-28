@@ -2,16 +2,26 @@ package Classes;
 
 
 import Exceptions.InvalidAddressException;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.core.config.Configurator;
+
+import java.util.logging.ErrorManager;
 
 public class Address {
+    public Logger addressLogger = LogManager.getLogger();
     private String country;
     private String city;
     private String street;
     private int house;
 
     public Address(String country, String city, String street, int house)  throws InvalidAddressException {
+        Configurator.initialize(null, "log4j2.xml");
+        addressLogger.info("Application started");
         if (house <= 0 || country == null || city == null || street == null) {
-            throw new InvalidAddressException("Invalid address (shouldn't be  null or <= 0)");
+            String errorMessage = "Invalid address (shouldn't be  null or <= 0)";
+            addressLogger.error(errorMessage);
+            throw new InvalidAddressException(errorMessage);
         }
         this.country = country;
         this.city = city;

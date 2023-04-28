@@ -8,6 +8,7 @@ import enums.Disease;
 import enums.DrugType;
 import enums.StaffType;
 
+
 public class Main {
 //    Interfaces were renamed
 //    created saveToFile method writing drug object toString() to .txt file. Used try-catch with resources.
@@ -16,13 +17,14 @@ public class Main {
 //    InvalidSalaryInput (1 > doctorsCategory < 6)
 //    NonMedicalSalaryException (standard salary > 50)
 //    added pom.xml and downloaded log4j 2 with maven
+//    logger works
+
 
 
     public static void main(String[] args) throws InvalidAddressException, InvalidCountryException, InvalidSalaryInput, NonMedicalSalaryException {
 
 //        working with address class
-
-        Address address1 = new Address("Poland", "Warsaw", "Marshalkovska", 3);
+        Address address1 = new Address("Poland", "Warsaw", "Marshalkovska", 1);
         System.out.println(address1);
         Address address2 = new Address("Poland", "Krakow", "Krola",3);
         Address address3 = new Address("Poland", "Wroclaw", "Jadwigi",7);
