@@ -1,5 +1,6 @@
 package Classes;
 
+import Exceptions.InvalidSalaryInput;
 import Interfaces.SalaryCalculator;
 
 public class Doctors extends Staff implements SalaryCalculator {
@@ -7,8 +8,11 @@ public class Doctors extends Staff implements SalaryCalculator {
     private int doctorsCategory;
     private int standardSalary;
 
-    public Doctors(String name, String surname, String discipline, int doctorsCategory, int standardSalary) {
+    public Doctors(String name, String surname, String discipline, int doctorsCategory, int standardSalary) throws InvalidSalaryInput {
         super(name, surname);
+        if (doctorsCategory > 6 || doctorsCategory < 1) {
+            throw new InvalidSalaryInput("Doctors category could be from 1 to 6");
+        }
         this.discipline = discipline;
         this.doctorsCategory = doctorsCategory;
         this.standardSalary = standardSalary;

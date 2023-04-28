@@ -2,21 +2,24 @@ package Classes;
 
 import Exceptions.InvalidAddressException;
 import Exceptions.InvalidCountryException;
+import Exceptions.InvalidSalaryInput;
 import enums.Disease;
 import enums.DrugType;
 import enums.StaffType;
 
 public class Main {
 //    Interfaces were renamed
-//    created custom exceptions InvalidAddressException (not null) and InvalidCountryException (only Poland)
 //    created saveToFile method writing drug object toString() to .txt file. Used try-catch with resources.
+//    created custom exceptions InvalidAddressException (not null)
+//    InvalidCountryException (only Poland)
+//    InvalidSalaryInput (1 > doctorsCategory < 6)
 
 
-    public static void main(String[] args) throws InvalidAddressException, InvalidCountryException {
+    public static void main(String[] args) throws InvalidAddressException, InvalidCountryException, InvalidSalaryInput {
 
 //        working with address class
 
-        Address address1 = new Address("Poland", "Warsaw", "Marshalkovska", 7);
+        Address address1 = new Address("Poland", "Warsaw", "Marshalkovska", 3);
         System.out.println(address1);
         Address address2 = new Address("Poland", "Krakow", "Krola",3);
         Address address3 = new Address("Poland", "Wroclaw", "Jadwigi",7);
