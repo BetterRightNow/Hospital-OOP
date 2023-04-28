@@ -15,6 +15,7 @@ public class Main {
 //    InvalidCountryException (only Poland)
 //    InvalidSalaryInput (1 > doctorsCategory < 6)
 //    NonMedicalSalaryException (standard salary > 50)
+//    added pom.xml and downloaded log4j 2 with maven
 
 
     public static void main(String[] args) throws InvalidAddressException, InvalidCountryException, InvalidSalaryInput, NonMedicalSalaryException {
