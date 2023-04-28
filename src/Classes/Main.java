@@ -3,6 +3,7 @@ package Classes;
 import Exceptions.InvalidAddressException;
 import Exceptions.InvalidCountryException;
 import Exceptions.InvalidSalaryInput;
+import Exceptions.NonMedicalSalaryException;
 import enums.Disease;
 import enums.DrugType;
 import enums.StaffType;
@@ -13,9 +14,10 @@ public class Main {
 //    created custom exceptions InvalidAddressException (not null)
 //    InvalidCountryException (only Poland)
 //    InvalidSalaryInput (1 > doctorsCategory < 6)
+//    NonMedicalSalaryException (standard salary > 50)
 
 
-    public static void main(String[] args) throws InvalidAddressException, InvalidCountryException, InvalidSalaryInput {
+    public static void main(String[] args) throws InvalidAddressException, InvalidCountryException, InvalidSalaryInput, NonMedicalSalaryException {
 
 //        working with address class
 

@@ -1,5 +1,6 @@
 package Classes;
 
+import Exceptions.NonMedicalSalaryException;
 import Interfaces.SalaryCalculator;
 import enums.StaffType;
 
@@ -8,8 +9,11 @@ public class NonMedicalStaff extends Staff implements SalaryCalculator {
     private int staffCategory;
     private int standardSalary;
 
-    public NonMedicalStaff(String name, String surname, StaffType staffType, int staffCategory, int standardSalary) {
+    public NonMedicalStaff(String name, String surname, StaffType staffType, int staffCategory, int standardSalary) throws NonMedicalSalaryException {
         super(name, surname);
+        if (standardSalary < 50) {
+            throw new NonMedicalSalaryException("Standard salary of non medical staff should be more than 50$");
+        }
         this.staffType = staffType;
         this.staffCategory = staffCategory;
         this.standardSalary = standardSalary;
