@@ -1,11 +1,14 @@
 package Classes;
 
 import enums.DrugType;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.FileWriter;
 import java.io.IOException;
 
 public final class Drugs {
+    public Logger drugListLogger = LogManager.getLogger();
     private String name;
     private String instruction;
     private DrugType drugType;
@@ -52,7 +55,7 @@ public final class Drugs {
             writer.close(); // Close the FileWriter object
             System.out.println("Drug saved to file: " + fileName);
         } catch (IOException e) { // Catch IOException
-            System.out.println("Failed to save drug to file: " + fileName);
+            drugListLogger.error("Failed to save drug to file: {}", fileName, e);
             e.printStackTrace(); // Print the stack trace of the caught exception to the console
         }
     }
