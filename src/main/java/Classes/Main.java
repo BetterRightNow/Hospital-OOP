@@ -8,6 +8,8 @@ import enums.Disease;
 import enums.DrugType;
 import enums.StaffType;
 
+import java.util.LinkedList;
+
 
 public class Main {
 //    Interfaces were renamed
@@ -18,6 +20,7 @@ public class Main {
 //    NonMedicalSalaryException (standard salary > 50)
 //    added pom.xml and downloaded log4j 2 with maven
 //    logger works
+//    created MyLinkedList and work with it creating drugList
 
 
 
@@ -79,6 +82,18 @@ public class Main {
         System.out.println(drug4);
         Drugs.drugCount();
         drug4.saveToFile("drugList.txt");
+        MyLinkedList <Drugs> druglist = new MyLinkedList<>();
+        druglist.add(drug1);
+        druglist.add(drug2);
+        druglist.add(drug3);
+        druglist.add(drug2);
+        druglist.remove(drug2);
+        System.out.println("\nWorking with MyLinkedList");
+        for (int i = 0; i < druglist.size(); i++) {
+            System.out.println(druglist.get(i));
+        }
+
+
 
 //        working with class ChildPatient
         ChildPatient childPatient1 = new ChildPatient("Piotr", "Ivanov", Disease.FLU, address2, "Kate");
