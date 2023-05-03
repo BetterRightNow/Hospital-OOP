@@ -23,6 +23,7 @@ public class Main {
 //    created childPatList<> and static returnAllChildPat() to ChildPatient class
 //    created oldPatList<> as a Set collection and returnAllOldPatients()
 //    created ChildPatMapCollection
+//    created dentistryQueue as Queue collection
 //
 //    created MyLinkedList and work with it creating drugList
 
@@ -70,6 +71,7 @@ public class Main {
 //        working with Dentistry class
         Dentistry dent1 = new Dentistry("Warsaw dentistry", address1, 300);
         System.out.println(dent1);
+
 
 //        working with nonMedicalStaff
         NonMedicalStaff driver1 = new NonMedicalStaff("John", "Doe", StaffType.DRIVER, 2, 200);
@@ -123,5 +125,12 @@ public class Main {
         oldPatient1.admit(regionalHospital1);
         System.out.println("\nworking with setList oldPatList and checking working with duplicating OldPatient objects");
         OldPatient.returnAllOldPatients();
+
+        System.out.println("\nWorking with dentistryQueue collection");
+        dent1.addPatient(childPatient2);
+        dent1.addPatient(oldPatient2);
+        dent1.addPatient(childPatient1);
+        System.out.println(dent1.removeAndReturnPatient());
+
     }
 }

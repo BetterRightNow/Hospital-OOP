@@ -65,6 +65,15 @@ public class ChildPatient extends Patients implements PatientInspection, ITransp
     }
 
     @Override
+    public String toString() {
+        return "ChildPatient{" +
+                "patName='" + patName + '\'' +
+                ", patSurname='" + patSurname + '\'' +
+                ", disease=" + disease +
+                '}';
+    }
+
+    @Override
     public void prescribeDrug (Disease disease, Drugs drugs) {
         switch (disease) {
             case FLU:
