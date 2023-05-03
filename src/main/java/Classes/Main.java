@@ -21,6 +21,7 @@ public class Main {
 //    added pom.xml and downloaded log4j 2 with maven
 //    logger works
 //    created MyLinkedList and work with it creating drugList
+//    added childPatList<> and static returnAllChildPat() to ChildPatient class
 
 
 
@@ -93,8 +94,6 @@ public class Main {
             System.out.println(druglist.get(i));
         }
 
-
-
 //        working with class ChildPatient
         ChildPatient childPatient1 = new ChildPatient("Piotr", "Ivanov", Disease.FLU, address2, "Kate");
         childPatient1.prescribeDrug(childPatient1.getDisease(), drug2);
@@ -103,6 +102,7 @@ public class Main {
         childPatient2.inspect(childPatient2.getDisease());
         childPatient2.transport(emergencyHospital1);
         childPatient2.admit(emergencyHospital1);
+        ChildPatient.returnAllChildPat();
 
 //        working with class OldPatient
         OldPatient oldPatient1 = new OldPatient("Marek", "Sobeski", Disease.ANGINA, address4,"Pawel");

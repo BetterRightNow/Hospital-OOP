@@ -7,12 +7,18 @@ import Interfaces.PatientInspection;
 import enums.Disease;
 import enums.DrugType;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ChildPatient extends Patients implements PatientInspection, ITransportable, HospitalAdmission {
     private String parentName;
+
+    public  static List<String> childPatList = new ArrayList<>();
 
     public ChildPatient(String patName, String patSurname, Disease disease, Address address, String parentName) {
         super(patName, patSurname, disease, address);
         this.parentName = parentName;
+        childPatList.add(patName + " " + patSurname);
     }
 
     public String getParentName() {
@@ -40,6 +46,12 @@ public class ChildPatient extends Patients implements PatientInspection, ITransp
     @Override
     public void admit(HospitalInformation hospitalInformation) {
         System.out.println("Admitting child patient " + patName + " into " + hospitalInformation.hospName());
+    }
+
+    public static void returnAllChildPat () {
+        for (String i: childPatList) {
+            System.out.println(i);
+        }
     }
 
     @Override
