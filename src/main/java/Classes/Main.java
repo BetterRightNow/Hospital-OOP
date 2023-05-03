@@ -20,9 +20,12 @@ public class Main {
 //    NonMedicalSalaryException (standard salary > 50)
 //    added pom.xml and downloaded log4j 2 with maven
 //    logger works
+//    created childPatList<> and static returnAllChildPat() to ChildPatient class
+//    created oldPatList<> as a Set collection and returnAllOldPatients()
+//    created ChildPatMapCollection
+//
 //    created MyLinkedList and work with it creating drugList
-//    added childPatList<> and static returnAllChildPat() to ChildPatient class
-//    added oldPatList<> as a Set collection and returnAllOldPatients()
+
 
 
 
@@ -103,7 +106,10 @@ public class Main {
         childPatient2.inspect(childPatient2.getDisease());
         childPatient2.transport(emergencyHospital1);
         childPatient2.admit(emergencyHospital1);
+        System.out.println("\nworking with childPatList collection");
         ChildPatient.returnAllChildPat();
+        System.out.println("\nworking with childPatMap collection");
+        ChildPatient.returnPatMap();
 
 //        working with class OldPatient
         OldPatient oldPatient1 = new OldPatient("Marek", "Sobeski", Disease.ANGINA, address4,"Pawel");

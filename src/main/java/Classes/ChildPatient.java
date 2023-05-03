@@ -8,17 +8,21 @@ import enums.Disease;
 import enums.DrugType;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ChildPatient extends Patients implements PatientInspection, ITransportable, HospitalAdmission {
     private String parentName;
 
     private static List<String> childPatList = new ArrayList<>();
+    private static Map <ChildPatient, Disease> childPatMap = new HashMap<ChildPatient, Disease>();
 
     public ChildPatient(String patName, String patSurname, Disease disease, Address address, String parentName) {
         super(patName, patSurname, disease, address);
         this.parentName = parentName;
         childPatList.add(patName + " " + patSurname);
+        childPatMap.put(this, disease);
     }
 
     public String getParentName() {
@@ -51,6 +55,12 @@ public class ChildPatient extends Patients implements PatientInspection, ITransp
     public static void returnAllChildPat () {
         for (String i: childPatList) {
             System.out.println(i);
+        }
+    }
+
+    public static void returnPatMap () {
+        for (Map.Entry<ChildPatient, Disease> i: childPatMap.entrySet()) {
+            System.out.println(i.getKey().getPatName() + " " + i.getKey().getPatSurname() + " " + i.getValue());
         }
     }
 
