@@ -22,6 +22,7 @@ public class Main {
 //    logger works
 //    created MyLinkedList and work with it creating drugList
 //    added childPatList<> and static returnAllChildPat() to ChildPatient class
+//    added oldPatList<> as a Set collection and returnAllOldPatients()
 
 
 
@@ -110,8 +111,11 @@ public class Main {
         OldPatient oldPatient2 = new OldPatient("Inna", "Kuzmina", Disease.ANGINA, address5,"Alex");
         oldPatient2.prescribeDrug(oldPatient2.getDisease(), drug1);
         OldPatient oldPatient3 = new OldPatient("Sergey", "Ivanov", Disease.HEALTHY_PATIENT, address6,"Piotr");
+        OldPatient oldPatient4 = new OldPatient("Inna", "Kuzmina", Disease.ANGINA, address5,"Alex");
         oldPatient3.inspect(oldPatient3.getDisease());
         oldPatient1.transport(regionalHospital1);
         oldPatient1.admit(regionalHospital1);
+        System.out.println("\nworking with setList oldPatList and checking working with duplicating OldPatient objects");
+        OldPatient.returnAllOldPatients();
     }
 }

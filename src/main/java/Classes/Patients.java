@@ -50,5 +50,25 @@ abstract public class Patients implements PatientInspection, ITransportable, Hos
         this.address = address;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Patients patients)) return false;
+
+        if (!getPatName().equals(patients.getPatName())) return false;
+        if (!getPatSurname().equals(patients.getPatSurname())) return false;
+        if (getDisease() != patients.getDisease()) return false;
+        return getAddress().equals(patients.getAddress());
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getPatName().hashCode();
+        result = 31 * result + getPatSurname().hashCode();
+        result = 31 * result + getDisease().hashCode();
+        result = 31 * result + getAddress().hashCode();
+        return result;
+    }
+
     abstract protected void prescribeDrug(Disease disease, Drugs drugs);
 }

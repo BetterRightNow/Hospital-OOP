@@ -13,7 +13,7 @@ import java.util.List;
 public class ChildPatient extends Patients implements PatientInspection, ITransportable, HospitalAdmission {
     private String parentName;
 
-    public  static List<String> childPatList = new ArrayList<>();
+    private static List<String> childPatList = new ArrayList<>();
 
     public ChildPatient(String patName, String patSurname, Disease disease, Address address, String parentName) {
         super(patName, patSurname, disease, address);
