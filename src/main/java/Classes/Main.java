@@ -24,7 +24,7 @@ public class Main {
 //    created oldPatList<> as a Set collection and returnAllOldPatients()
 //    created ChildPatMapCollection
 //    created dentistryQueue as Queue collection
-//
+//    created privateClinicQueue as Dequeue collection
 //    created MyLinkedList and work with it creating drugList
 
 
@@ -132,5 +132,10 @@ public class Main {
         dent1.addPatient(childPatient1);
         System.out.println(dent1.removeAndReturnPatient());
 
+        System.out.println("\nWorking with privateClinicQueue collection");
+        privateClinic1.addPatient(oldPatient1);
+        privateClinic1.addPatient(oldPatient2);
+        privateClinic1.addPatient(childPatient1);
+        System.out.println(privateClinic1.nextPatient());
     }
 }
