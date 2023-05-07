@@ -25,7 +25,9 @@ public class Main {
 //    created privateClinicQueue as Dequeue collection
 //    created MyLinkedList and work with it creating drugList
 //    added maven-compiler, maven-jar plugins and jUnit and log4j dependencies
-//    tryed mvn compile, mvn test, mvn package, mvn install
+//    tried mvn compile, mvn test, mvn package, mvn install
+//    created TextCount class that works with static textCount method
+//    changed extensions of custom exceptions
 
 
 
@@ -137,5 +139,8 @@ public class Main {
         privateClinic1.addPatient(oldPatient2);
         privateClinic1.addPatient(childPatient1);
         System.out.println(privateClinic1.nextPatient());
+
+        System.out.println("\nWorking with TextCount class");
+        TextCount.textCount("src/main/resources/hospitalText.txt");
     }
 }
