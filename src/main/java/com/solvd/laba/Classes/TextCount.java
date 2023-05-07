@@ -5,6 +5,7 @@ import org.apache.logging.log4j.Logger;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 
 public class TextCount {
@@ -22,7 +23,10 @@ public class TextCount {
                     counter += words.length;
                 }
             }
-            System.out.println("File " + filename + " contains " + counter + " words");
+            FileWriter writer = new FileWriter(filename, true);
+            writer.write("\n\nThis file contains " + counter + " words");
+            writer.close();
+            System.out.println("Number of words in " + filename + " saved to this file");
         } catch (IOException e) {
             textCountLogger.error("Can't read the file : {}", filename, e);
         }
