@@ -8,6 +8,8 @@ import com.solvd.laba.enums.Disease;
 import com.solvd.laba.enums.DrugType;
 import com.solvd.laba.enums.StaffType;
 
+import java.io.IOException;
+
 
 public class Main {
 //    Interfaces were renamed
@@ -32,7 +34,7 @@ public class Main {
 
 
 
-    public static void main(String[] args) throws InvalidAddressException, InvalidCountryException, InvalidSalaryInput, NonMedicalSalaryException {
+    public static void main(String[] args) throws InvalidAddressException, InvalidCountryException, InvalidSalaryInput, NonMedicalSalaryException, IOException {
 
 //        working with address class
         Address address1 = new Address("Poland", "Warsaw", "Marshalkovska", 1);
