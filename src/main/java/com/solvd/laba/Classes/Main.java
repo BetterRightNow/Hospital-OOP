@@ -30,6 +30,7 @@ public class Main {
 //    tried mvn compile, mvn test, mvn package, mvn install
 //    created TextCount class that works with static textCount method
 //    changed extensions of custom exceptions
+//    created UniqueWordsCount class and countUniqueWords method
 
 
 
@@ -144,5 +145,8 @@ public class Main {
 
         System.out.println("\nWorking with TextCount class");
         TextCount.textCount("src/main/resources/hospitalText.txt");
+
+//        Working with UniqueWordsCount class
+        UniqueWordsCount.countUniqueWords("src/main/resources/words.txt");
     }
 }
