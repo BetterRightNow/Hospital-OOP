@@ -39,4 +39,7 @@ public enum OperationType {
         }
     };
     public void operationSchedule(Patients patient) {};
+    static {
+        System.out.println("Attention, medical operations occur");
+    }
 }

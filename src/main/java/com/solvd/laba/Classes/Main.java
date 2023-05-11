@@ -4,10 +4,7 @@ import com.solvd.laba.Exceptions.InvalidAddressException;
 import com.solvd.laba.Exceptions.InvalidCountryException;
 import com.solvd.laba.Exceptions.InvalidSalaryInput;
 import com.solvd.laba.Exceptions.NonMedicalSalaryException;
-import com.solvd.laba.enums.Disease;
-import com.solvd.laba.enums.DrugType;
-import com.solvd.laba.enums.OperationType;
-import com.solvd.laba.enums.StaffType;
+import com.solvd.laba.enums.*;
 
 import java.io.IOException;
 
@@ -33,7 +30,11 @@ public class Main {
 //    changed extensions of custom exceptions
 //    created UniqueWordsCount class and countUniqueWords method
 //    Enum StaffType have vacation() method, int vacation field, toString()
-//    Operations class and OperationType enum
+//    Operations class and OperationType enum. operationSchedule() creates an object of Operations
+//    MedicalRecords class created working with enums
+//    Severity overrides processSeverity()
+//    RecordStatus contains String status field and toString()
+//    RecordType contains String recordReport field and processRecord()
 
 
 
@@ -157,5 +158,9 @@ public class Main {
 
         System.out.println("\nworking with Operations class");
         OperationType.SURGERY.operationSchedule(oldPatient4);
+
+        System.out.println("\nworking with medical records");
+        MedicalRecords medicalRecord = new MedicalRecords(Disease.ANGINA, RecordType.MEDICAL_HISTORY, Severity.MODERATE, RecordStatus.OPEN, childPatient2);
+
     }
 }
