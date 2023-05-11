@@ -1,9 +1,27 @@
 package com.solvd.laba.enums;
 
 public enum StaffType {
-    DRIVER,
-    CLEANER,
-    SECURITY;
+    DRIVER (25),
+    CLEANER (21),
+    SECURITY (23);
+
+    private int vacation;
+
+    StaffType(int vacation) {
+        this.vacation = vacation;
+    }
+
+    public int getVacation() {
+        return vacation;
+    }
+
+    public void setVacation(int vacation) {
+        this.vacation = vacation;
+    }
+
+    public void vacation() {
+        System.out.println("Employee have" + vacation + " days of vacation");
+    }
 
     @Override
     public String toString() {

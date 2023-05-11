@@ -31,6 +31,7 @@ public class Main {
 //    created TextCount class that works with static textCount method
 //    changed extensions of custom exceptions
 //    created UniqueWordsCount class and countUniqueWords method
+//    Enum StaffType have vacation() method, int vacation field, toString()
 
 
 
@@ -82,6 +83,9 @@ public class Main {
         NonMedicalStaff driver1 = new NonMedicalStaff("John", "Doe", StaffType.DRIVER, 2, 200);
         System.out.println(driver1);
         driver1.calculatePayment();
+        StaffType driver = driver1.getStaffType();
+        driver.vacation();
+
 
 //        working with Drugs Class
         Drugs drug1 = new Drugs("Penicillin", "14 days, 2 times every day", DrugType.ANTIBIOTIC);
