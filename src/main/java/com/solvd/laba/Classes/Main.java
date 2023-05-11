@@ -6,6 +6,7 @@ import com.solvd.laba.Exceptions.InvalidSalaryInput;
 import com.solvd.laba.Exceptions.NonMedicalSalaryException;
 import com.solvd.laba.enums.Disease;
 import com.solvd.laba.enums.DrugType;
+import com.solvd.laba.enums.OperationType;
 import com.solvd.laba.enums.StaffType;
 
 import java.io.IOException;
@@ -32,6 +33,7 @@ public class Main {
 //    changed extensions of custom exceptions
 //    created UniqueWordsCount class and countUniqueWords method
 //    Enum StaffType have vacation() method, int vacation field, toString()
+//    Operations class and OperationType enum
 
 
 
@@ -152,5 +154,8 @@ public class Main {
 
 //        Working with UniqueWordsCount class
         UniqueWordsCount.countUniqueWords("src/main/resources/words.txt");
+
+        System.out.println("\nworking with Operations class");
+        OperationType.SURGERY.operationSchedule(oldPatient4);
     }
 }
