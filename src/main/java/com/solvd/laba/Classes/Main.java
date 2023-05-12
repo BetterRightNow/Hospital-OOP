@@ -23,6 +23,7 @@ public class Main {
 //    created Predicate<Integer> isLarge in Hospice Class
 //    created UnaryOperator<Integer> yearSalaryLambda in Nurses class
 //    Consumer<String> hurricane in PrivateClinic
+//    Function<> in RegionalHospital
 
 
 
@@ -46,6 +47,7 @@ public class Main {
 //        working with regionalHospital class
         RegionalHospital regionalHospital1 = new RegionalHospital("Warsaw centrum hospital", address1, "the Warsaw centrum");
         System.out.println(regionalHospital1);
+        regionalHospital1.regionReport();
 
 //        working with EmergencyHospital class
         EmergencyHospital emergencyHospital1 = new EmergencyHospital("Main Emergency service", address1, 17);
