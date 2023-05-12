@@ -3,10 +3,10 @@ package com.solvd.laba.Classes;
 import com.solvd.laba.Exceptions.InvalidCountryException;
 import com.solvd.laba.Interfaces.HospitalInformation;
 
-public class RegionalHospitalInformation extends Hospital implements HospitalInformation {
+public class RegionalHospital extends Hospital implements HospitalInformation {
     private String region;
 
-    public RegionalHospitalInformation(String name, Address address, String region) throws InvalidCountryException {
+    public RegionalHospital(String name, Address address, String region) throws InvalidCountryException {
         super(name, address);
         this.region = region;
     }

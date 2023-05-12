@@ -2,14 +2,18 @@ package com.solvd.laba.Classes;
 
 import com.solvd.laba.Interfaces.SalaryCalculator;
 
+import java.util.function.UnaryOperator;
+
 public class Nurses extends Staff implements SalaryCalculator {
     private int experience;
     private int standardSalary;
+    private UnaryOperator<Integer> yearSalaryLambda;
 
     public Nurses(String name, String surname, int experience, int standardSalary) {
         super(name, surname);
         this.experience = experience;
         this.standardSalary = standardSalary;
+        yearSalaryLambda = (exp) -> 12 * standardSalary * exp * 2;
     }
 
     public int getExperience() {
@@ -32,6 +36,10 @@ public class Nurses extends Staff implements SalaryCalculator {
     public void calculatePayment() {
         int payment = experience * standardSalary * 2;
         System.out.println("salary is " + payment + "$");
+    }
+
+    public int calculateYearlySalary() {
+        return yearSalaryLambda.apply(experience);
     }
 
     @Override

@@ -3,10 +3,12 @@ package com.solvd.laba.Classes;
 import com.solvd.laba.Exceptions.InvalidCountryException;
 import com.solvd.laba.Interfaces.HospitalInformation;
 
-public class EmergencyHospitalInformation extends Hospital implements HospitalInformation {
+import java.util.function.Supplier;
+
+public class EmergencyHospital extends Hospital implements HospitalInformation {
     private int ambulancesNum;
 
-    public EmergencyHospitalInformation(String name, Address address, int ambulancesNum) throws InvalidCountryException {
+    public EmergencyHospital(String name, Address address, int ambulancesNum) throws InvalidCountryException {
         super(name, address);
         this.ambulancesNum = ambulancesNum;
     }
@@ -18,6 +20,13 @@ public class EmergencyHospitalInformation extends Hospital implements HospitalIn
     public void setAmbulancesNum(int ambulancesNum) {
         this.ambulancesNum = ambulancesNum;
     }
+
+    public static Supplier<EmergencyHospital> exampleEmergObj = () -> {
+        String exampleName = "exampleName";
+        Address exampleAddress = new Address("Poland", "ExampleCity", "ExampleStreet", 1);
+        int exampleAmbNub = 10;
+        return new EmergencyHospital(exampleName, exampleAddress, exampleAmbNub);
+    };
 
     @Override
     public Address hospAddress() {

@@ -10,31 +10,18 @@ import java.io.IOException;
 
 
 public class Main {
-//    Interfaces were renamed
-//    created saveToFile method writing drug object toString() to .txt file. Used try-catch with resources.
-//    created custom exceptions InvalidAddressException (not null)
-//    InvalidCountryException (only Poland)
-//    InvalidSalaryInput (1 > doctorsCategory < 6)
-//    NonMedicalSalaryException (standard salary > 50)
-//    added pom.xml and downloaded log4j 2 with maven
-//    logger works
-//    created childPatList<> and static returnAllChildPat() to ChildPatient class
-//    created oldPatList<> as a Set collection and returnAllOldPatients()
-//    created ChildPatMapCollection
-//    created dentistryQueue as Queue collection
-//    created privateClinicQueue as Dequeue collection
-//    created MyLinkedList and work with it creating drugList
-//    added maven-compiler, maven-jar plugins and jUnit and log4j dependencies
-//    tried mvn compile, mvn test, mvn package, mvn install
 //    created TextCount class that works with static textCount method
 //    changed extensions of custom exceptions
 //    created UniqueWordsCount class and countUniqueWords method
 //    Enum StaffType have vacation() method, int vacation field, toString()
 //    Operations class and OperationType enum. operationSchedule() creates an object of Operations
-//    MedicalRecords class created working with enums
-//    Severity overrides processSeverity()
-//    RecordStatus contains String status field and toString()
-//    RecordType contains String recordReport field and processRecord()
+//    created MedicalRecords class working with enums
+//    Severity enum overrides processSeverity()
+//    RecordStatus enum contains String status field and toString()
+//    RecordType enum contains String recordReport field and processRecord()
+//    created Supplier<EmergencyHospital> exampleEmergObj
+//    created Predicate<Integer> isLarge in Hospice Class
+//    created UnaryOperator<Integer> yearSalaryLambda in Nurses class
 
 
 
@@ -55,16 +42,17 @@ public class Main {
         System.out.println(privateClinic1);
 
 //        working with regionalHospital class
-        RegionalHospitalInformation regionalHospital1 = new RegionalHospitalInformation("Warsaw centrum hospital", address1, "the Warsaw centrum");
+        RegionalHospital regionalHospital1 = new RegionalHospital("Warsaw centrum hospital", address1, "the Warsaw centrum");
         System.out.println(regionalHospital1);
 
 //        working with EmergencyHospital class
-        EmergencyHospitalInformation emergencyHospital1 = new EmergencyHospitalInformation("Main Emergency service", address1, 17);
+        EmergencyHospital emergencyHospital1 = new EmergencyHospital("Main Emergency service", address1, 17);
         System.out.println(emergencyHospital1);
 
 //        working with Hospice class
         Hospice hospice1 = new Hospice("Polish main Hospice", address1, 202);
         System.out.println(hospice1);
+        System.out.println(hospice1.isLarge.test(hospice1.getMaxPatientsNum()));
 
 //        working with Doctors class
         Doctors doc1 = new Doctors("Robert", "Lewandowski", "Dentistry", 2, 500);
@@ -76,6 +64,7 @@ public class Main {
         Nurses nurse1 = new Nurses("Eliza", "Kowalska", 4, 300);
         System.out.println(nurse1);
         nurse1.calculatePayment();
+        System.out.println(nurse1.calculateYearlySalary());
 
 //        working with Dentistry class
         Dentistry dent1 = new Dentistry("Warsaw dentistry", address1, 300);
@@ -138,29 +127,41 @@ public class Main {
         System.out.println("\nworking with setList oldPatList and checking working with duplicating OldPatient objects");
         OldPatient.returnAllOldPatients();
 
+//        Working with dentistryQueue collection
         System.out.println("\nWorking with dentistryQueue collection");
         dent1.addPatient(childPatient2);
         dent1.addPatient(oldPatient2);
         dent1.addPatient(childPatient1);
         System.out.println(dent1.removeAndReturnPatient());
 
+//        Working with privateClinicQueue collection
         System.out.println("\nWorking with privateClinicQueue collection");
         privateClinic1.addPatient(oldPatient1);
         privateClinic1.addPatient(oldPatient2);
         privateClinic1.addPatient(childPatient1);
         System.out.println(privateClinic1.nextPatient());
 
+//        Working with TextCount class
         System.out.println("\nWorking with TextCount class");
         TextCount.textCount("src/main/resources/hospitalText.txt");
 
 //        Working with UniqueWordsCount class
         UniqueWordsCount.countUniqueWords("src/main/resources/words.txt");
 
+//        Operations class and OperationType enum
         System.out.println("\nworking with Operations class");
         OperationType.SURGERY.operationSchedule(oldPatient4);
 
+//        working with medical records
         System.out.println("\nworking with medical records");
         MedicalRecords medicalRecord = new MedicalRecords(Disease.ANGINA, RecordType.MEDICAL_HISTORY, Severity.MODERATE, RecordStatus.OPEN, childPatient2);
+
+//        working with Supplier<> exampleEmergObj
+        System.out.println("\nworking with Supplier<> exampleEmergObj");
+        System.out.println(EmergencyHospital.exampleEmergObj.get());
+
+
+
 
     }
 }

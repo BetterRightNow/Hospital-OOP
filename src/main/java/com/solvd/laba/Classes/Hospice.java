@@ -3,6 +3,8 @@ package com.solvd.laba.Classes;
 import com.solvd.laba.Exceptions.InvalidCountryException;
 import com.solvd.laba.Interfaces.HospitalInformation;
 
+import java.util.function.Predicate;
+
 public class Hospice extends Hospital implements HospitalInformation {
     private int maxPatientsNum;
 
@@ -18,6 +20,8 @@ public class Hospice extends Hospital implements HospitalInformation {
     public void setMaxPatientsNum(int maxPatientsNum) {
         this.maxPatientsNum = maxPatientsNum;
     }
+
+    Predicate<Integer> isLarge = (maxPatientsNum) -> maxPatientsNum > 50;
 
     @Override
     public Address hospAddress() {
