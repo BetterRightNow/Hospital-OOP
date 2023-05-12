@@ -22,6 +22,7 @@ public class Main {
 //    created Supplier<EmergencyHospital> exampleEmergObj
 //    created Predicate<Integer> isLarge in Hospice Class
 //    created UnaryOperator<Integer> yearSalaryLambda in Nurses class
+//    Consumer<String> hurricane in PrivateClinic
 
 
 
@@ -40,6 +41,7 @@ public class Main {
 //        working with privateClinic class
         PrivateClinic privateClinic1 = new PrivateClinic("First private Clinic", address1, "Luxmed");
         System.out.println(privateClinic1);
+        privateClinic1.destroy();
 
 //        working with regionalHospital class
         RegionalHospital regionalHospital1 = new RegionalHospital("Warsaw centrum hospital", address1, "the Warsaw centrum");

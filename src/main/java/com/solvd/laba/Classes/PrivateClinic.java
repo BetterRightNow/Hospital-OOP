@@ -5,6 +5,7 @@ import com.solvd.laba.Interfaces.HospitalInformation;
 
 import java.util.Deque;
 import java.util.LinkedList;
+import java.util.function.Consumer;
 
 public class PrivateClinic extends Hospital implements HospitalInformation {
     private String brandName;
@@ -39,6 +40,11 @@ public class PrivateClinic extends Hospital implements HospitalInformation {
         return "\nBrandname of private clinic is " + brandName +
                 " The name of hospital is " + getName() +
                 "\nthe hospital address is" + getAddress();
+    }
+
+    public void destroy () {
+        Consumer<String> hurricane = (name) -> System.out.println(name + " was destroyed with hurricane");
+        hurricane.accept(getName());
     }
 
     public void addPatient(Patients patient) {
