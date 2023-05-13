@@ -24,6 +24,9 @@ public class Main {
 //    created UnaryOperator<Integer> yearSalaryLambda in Nurses class
 //    Consumer<String> hurricane in PrivateClinic
 //    Function<> in RegionalHospital
+//    Consumer<Queue<Patients>> in Dentistry class
+//    Function <> in PrivateClinic class
+
 
 
 
@@ -137,6 +140,8 @@ public class Main {
         dent1.addPatient(oldPatient2);
         dent1.addPatient(childPatient1);
         System.out.println(dent1.removeAndReturnPatient());
+        System.out.println("\nworking with Consumer Queue");
+        dent1.filterPatients();
 
 //        Working with privateClinicQueue collection
         System.out.println("\nWorking with privateClinicQueue collection");
@@ -144,6 +149,9 @@ public class Main {
         privateClinic1.addPatient(oldPatient2);
         privateClinic1.addPatient(childPatient1);
         System.out.println(privateClinic1.nextPatient());
+        System.out.println("\nWorking with Function<> lambda function");
+        privateClinic1.choosePatients();
+
 
 //        Working with TextCount class
         System.out.println("\nWorking with TextCount class");
@@ -161,11 +169,7 @@ public class Main {
         MedicalRecords medicalRecord = new MedicalRecords(Disease.ANGINA, RecordType.MEDICAL_HISTORY, Severity.MODERATE, RecordStatus.OPEN, childPatient2);
 
 //        working with Supplier<> exampleEmergObj
-        System.out.println("\nworking with Supplier<> exampleEmergObj");
+        System.out.println("\nworking with Supplier<> in EmergencyHospital vlass");
         System.out.println(EmergencyHospital.exampleEmergObj.get());
-
-
-
-
     }
 }

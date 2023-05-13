@@ -4,6 +4,7 @@ import com.solvd.laba.Exceptions.InvalidCountryException;
 
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.function.Consumer;
 
 public class Dentistry extends Hospital {
     private int doctorsFee;
@@ -31,6 +32,17 @@ public class Dentistry extends Hospital {
 
     public Patients removeAndReturnPatient () {
         return dentistryQueue.poll();
+    }
+
+    public void filterPatients () {
+        Consumer<Queue<Patients>> krakowFilter = (dentistryQueue) -> {
+            for (Patients p: dentistryQueue) {
+                if (p.getAddress().getCity().equals("Krakow")) {
+                    System.out.println(p);
+                }
+            }
+        };
+        krakowFilter.accept(dentistryQueue);
     }
 
     @Override

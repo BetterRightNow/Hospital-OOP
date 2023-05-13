@@ -2,10 +2,11 @@ package com.solvd.laba.Classes;
 
 import com.solvd.laba.Exceptions.InvalidCountryException;
 import com.solvd.laba.Interfaces.HospitalInformation;
+import com.solvd.laba.enums.Disease;
 
-import java.util.Deque;
-import java.util.LinkedList;
+import java.util.*;
 import java.util.function.Consumer;
+import java.util.function.Function;
 
 public class PrivateClinic extends Hospital implements HospitalInformation {
     private String brandName;
@@ -55,4 +56,17 @@ public class PrivateClinic extends Hospital implements HospitalInformation {
         return privateClinicQueue.poll();
     }
 
+    public void choosePatients () {
+        Function<Deque<Patients>, List<Patients>> choosePatient = (privateClinicQueue) -> {
+            List<Patients> choosenPatients = new ArrayList<>();
+            for (Patients p: privateClinicQueue) {
+                if (p.getDisease().equals(Disease.ANGINA)) {
+                    choosenPatients.add(p);
+                }
+            }
+            return choosenPatients;
+        };
+        List<Patients> result = choosePatient.apply(privateClinicQueue);
+        System.out.println("patients with angina were saved to List<Patients> result" + result);
+    }
 }
