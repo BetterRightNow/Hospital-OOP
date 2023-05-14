@@ -26,8 +26,7 @@ public class Main {
 //    Function<> in RegionalHospital
 //    Consumer<Queue<Patients>> in Dentistry class
 //    Function <> in PrivateClinic class
-
-
+//    custom Ambulance<> in EmergencyHospital class
 
 
 
@@ -171,5 +170,9 @@ public class Main {
 //        working with Supplier<> exampleEmergObj
         System.out.println("\nworking with Supplier<> in EmergencyHospital vlass");
         System.out.println(EmergencyHospital.exampleEmergObj.get());
+
+//        working with Ambulance<> in EmergencyHospital class
+        System.out.println("\nworking with Ambulance<> in EmergencyHospital class");
+        System.out.println(emergencyHospital1.ambulanceTeam());
     }
 }

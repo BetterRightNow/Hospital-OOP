@@ -5,8 +5,13 @@ import com.solvd.laba.Interfaces.HospitalInformation;
 
 import java.util.function.Supplier;
 
+interface Ambulance<T, R> {
+    R apply(T t);
+}
+
 public class EmergencyHospital extends Hospital implements HospitalInformation {
     private int ambulancesNum;
+    private int floorsNumber;
 
     public EmergencyHospital(String name, Address address, int ambulancesNum) throws InvalidCountryException {
         super(name, address);
@@ -27,6 +32,21 @@ public class EmergencyHospital extends Hospital implements HospitalInformation {
         int exampleAmbNub = 10;
         return new EmergencyHospital(exampleName, exampleAddress, exampleAmbNub);
     };
+
+    public String ambulanceTeam () {
+        final int[] ambData = new int[3];
+        Ambulance<EmergencyHospital, String> amb = (EmergencyHospital hospital) -> {
+            ambData[0] = ambulancesNum;
+            ambData[1] = ambulancesNum * 2;
+            ambData[2] = ambulancesNum;
+            String ambTeam = "Ambulance team is " +
+                    ambData[0] + " drivers, " +
+                    ambData[1] + " nurses and " +
+                    ambData[2] + " doctors.";
+            return ambTeam;
+        };
+        return amb.apply(this);
+    }
 
     @Override
     public Address hospAddress() {
