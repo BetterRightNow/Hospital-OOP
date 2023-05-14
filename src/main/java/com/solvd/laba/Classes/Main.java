@@ -27,6 +27,7 @@ public class Main {
 //    Consumer<Queue<Patients>> in Dentistry class
 //    Function <> in PrivateClinic class
 //    custom Ambulance<> in EmergencyHospital class
+//    custom CheckDentistry<> in Dentistry class
 
 
 
@@ -73,7 +74,7 @@ public class Main {
         System.out.println(nurse1.calculateYearlySalary());
 
 //        working with Dentistry class
-        Dentistry dent1 = new Dentistry("Warsaw dentistry", address1, 300);
+        Dentistry dent1 = new Dentistry("Warsaw dentistry", address1, 300, 10);
         System.out.println(dent1);
 
 
@@ -174,5 +175,9 @@ public class Main {
 //        working with Ambulance<> in EmergencyHospital class
         System.out.println("\nworking with Ambulance<> in EmergencyHospital class");
         System.out.println(emergencyHospital1.ambulanceTeam());
+
+//        working with CheckDentistry<> in Dentistry class
+        System.out.println("\nworking with CheckDentistry<> in Dentistry class");
+        dent1.checkQueue();
     }
 }
