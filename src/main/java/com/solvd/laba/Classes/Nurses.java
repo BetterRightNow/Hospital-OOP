@@ -4,6 +4,10 @@ import com.solvd.laba.Interfaces.SalaryCalculator;
 
 import java.util.function.UnaryOperator;
 
+interface NurseRetirement<T, R> {
+    R apply(T t);
+}
+
 public class Nurses extends Staff implements SalaryCalculator {
     private int experience;
     private int standardSalary;
@@ -40,6 +44,13 @@ public class Nurses extends Staff implements SalaryCalculator {
 
     public int calculateYearlySalary() {
         return yearSalaryLambda.apply(experience);
+    }
+    public int nurseRetirement () {
+        NurseRetirement<Nurses, Integer> nurseRet = (Nurses nurse) -> {
+            int result = 40 - experience;
+            return result;
+        };
+        return nurseRet.apply(this);
     }
 
     @Override

@@ -179,5 +179,9 @@ public class Main {
 //        working with CheckDentistry<> in Dentistry class
         System.out.println("\nworking with CheckDentistry<> in Dentistry class");
         dent1.checkQueue();
+
+//        working with NurseRetirement<> in Nurses class
+        System.out.println("\nworking with NurseRetirement<> in Nurses class");
+        System.out.println(nurse1.nurseRetirement());
     }
 }
