@@ -11,7 +11,6 @@ interface Ambulance<T, R> {
 
 public class EmergencyHospital extends Hospital implements HospitalInformation {
     private int ambulancesNum;
-    private int floorsNumber;
 
     public EmergencyHospital(String name, Address address, int ambulancesNum) throws InvalidCountryException {
         super(name, address);

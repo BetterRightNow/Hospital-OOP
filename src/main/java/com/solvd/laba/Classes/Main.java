@@ -7,6 +7,7 @@ import com.solvd.laba.Exceptions.NonMedicalSalaryException;
 import com.solvd.laba.enums.*;
 
 import java.io.IOException;
+import java.util.function.Predicate;
 
 
 public class Main {
@@ -19,8 +20,9 @@ public class Main {
 //    Severity enum overrides processSeverity()
 //    RecordStatus enum contains String status field and toString()
 //    RecordType enum contains String recordReport field and processRecord()
-//    created Supplier<EmergencyHospital> exampleEmergObj
+//    filterDentQueue method with interface and lambda function
 //    created Predicate<Integer> isLarge in Hospice Class
+//    created Supplier<EmergencyHospital> exampleEmergObj
 //    created UnaryOperator<Integer> yearSalaryLambda in Nurses class
 //    Consumer<String> hurricane in PrivateClinic
 //    Function<> in RegionalHospital
@@ -28,6 +30,7 @@ public class Main {
 //    Function <> in PrivateClinic class
 //    custom Ambulance<> in EmergencyHospital class
 //    custom CheckDentistry<> in Dentistry class
+//    custom NurseRetirement<> in Nurses class
 
 
 
@@ -59,7 +62,16 @@ public class Main {
 //        working with Hospice class
         Hospice hospice1 = new Hospice("Polish main Hospice", address1, 202);
         System.out.println(hospice1);
-        System.out.println(hospice1.isLarge.test(hospice1.getMaxPatientsNum()));
+        System.out.println(hospice1.isLarge(new Predicate<Integer>() {
+            @Override
+            public boolean test(Integer integer) {
+                if (hospice1.getMaxPatientsNum() > 50) {
+                    return true;
+                }
+                return false;
+            }
+        }));
+
 
 //        working with Doctors class
         Doctors doc1 = new Doctors("Robert", "Lewandowski", "Dentistry", 2, 500);
@@ -169,7 +181,7 @@ public class Main {
         MedicalRecords medicalRecord = new MedicalRecords(Disease.ANGINA, RecordType.MEDICAL_HISTORY, Severity.MODERATE, RecordStatus.OPEN, childPatient2);
 
 //        working with Supplier<> exampleEmergObj
-        System.out.println("\nworking with Supplier<> in EmergencyHospital vlass");
+        System.out.println("\nworking with Supplier<> in EmergencyHospital class");
         System.out.println(EmergencyHospital.exampleEmergObj.get());
 
 //        working with Ambulance<> in EmergencyHospital class
@@ -182,6 +194,15 @@ public class Main {
 
 //        working with NurseRetirement<> in Nurses class
         System.out.println("\nworking with NurseRetirement<> in Nurses class");
-        System.out.println(nurse1.nurseRetirement());
+        System.out.println("nurse " + nurse1.getName() + " has " + nurse1.nurseRetirement() + " years till retirement");
+
+//        working with dentistryFilter lambda
+        System.out.println("\nworking with dentistryFilter lambda");
+        System.out.println("in dentistry " + dent1.getName() + " there are such patients with angina " + dent1.filterDentQueue(patient -> {
+            if (patient.getDisease() == Disease.ANGINA) {
+                return true;
+            }
+            return false;
+        }));
     }
 }

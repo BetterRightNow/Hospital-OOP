@@ -21,7 +21,10 @@ public class Hospice extends Hospital implements HospitalInformation {
         this.maxPatientsNum = maxPatientsNum;
     }
 
-    Predicate<Integer> isLarge = (maxPatientsNum) -> maxPatientsNum > 50;
+    public boolean isLarge (Predicate<Integer> checkLarge) {
+        if (checkLarge.test(maxPatientsNum)) return true;
+        return false;
+    }
 
     @Override
     public Address hospAddress() {

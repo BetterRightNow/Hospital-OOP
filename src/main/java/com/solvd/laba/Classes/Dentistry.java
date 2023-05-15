@@ -1,16 +1,17 @@
 package com.solvd.laba.Classes;
 
 import com.solvd.laba.Exceptions.InvalidCountryException;
+import com.solvd.laba.Interfaces.DentistryFilter;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 import java.util.function.Consumer;
 
 interface CheckDentistry<T> {
     void apply(T t);
 }
-
-
 
 public class Dentistry extends Hospital {
     private int doctorsFee;
@@ -71,6 +72,16 @@ public class Dentistry extends Hospital {
             }
         };
         checkDent.apply(this);
+    }
+
+    public List<Patients> filterDentQueue (DentistryFilter filteredPatient) {
+        List<Patients> filteredPatients = new ArrayList<>();
+        for (Patients p: dentistryQueue) {
+            if (filteredPatient.filter(p)) {
+                filteredPatients.add(p);
+            }
+        }
+        return filteredPatients;
     }
 
     @Override
