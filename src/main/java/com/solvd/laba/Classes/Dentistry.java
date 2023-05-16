@@ -51,15 +51,11 @@ public class Dentistry extends Hospital {
         return dentistryQueue.poll();
     }
 
-    public void filterPatients () {
-        Consumer<Queue<Patients>> krakowFilter = (dentistryQueue) -> {
-            for (Patients p: dentistryQueue) {
-                if (p.getAddress().getCity().equals("Krakow")) {
-                    System.out.println(p);
-                }
-            }
-        };
-        krakowFilter.accept(dentistryQueue);
+    public void filterPatients (Consumer<Patients> krakowFilter) {
+        for (Patients p: dentistryQueue) {
+            krakowFilter.accept(p);
+        }
+
     }
 
     public void checkQueue () {

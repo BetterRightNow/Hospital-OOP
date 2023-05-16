@@ -26,6 +26,14 @@ public class PrivateClinic extends Hospital implements HospitalInformation {
         this.brandName = brandName;
     }
 
+    public Deque<Patients> getPrivateClinicQueue() {
+        return privateClinicQueue;
+    }
+
+    public void setPrivateClinicQueue(Deque<Patients> privateClinicQueue) {
+        this.privateClinicQueue = privateClinicQueue;
+    }
+
     @Override
     public Address hospAddress() {
         return address;
@@ -56,17 +64,8 @@ public class PrivateClinic extends Hospital implements HospitalInformation {
         return privateClinicQueue.poll();
     }
 
-    public void choosePatients () {
-        Function<Deque<Patients>, List<Patients>> choosePatient = (privateClinicQueue) -> {
-            List<Patients> choosenPatients = new ArrayList<>();
-            for (Patients p: privateClinicQueue) {
-                if (p.getDisease().equals(Disease.ANGINA)) {
-                    choosenPatients.add(p);
-                }
-            }
-            return choosenPatients;
-        };
-        List<Patients> result = choosePatient.apply(privateClinicQueue);
-        System.out.println("patients with angina were saved to List<Patients> result" + result);
-    }
+    public void choosePatients (Function<Deque<Patients>, List<Patients>> choosePatientLambda) {
+        List<Patients> chosenPatients = choosePatientLambda.apply(privateClinicQueue);
+        System.out.println(chosenPatients);
+        }
 }

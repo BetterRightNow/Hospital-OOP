@@ -7,6 +7,9 @@ import com.solvd.laba.Exceptions.NonMedicalSalaryException;
 import com.solvd.laba.enums.*;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Deque;
+import java.util.List;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
 
@@ -26,13 +29,13 @@ public class Main {
 //    created Predicate<Integer> isLarge in Hospice Class
 //    created Supplier<EmergencyHospital> exampleEmergObj
 //    created UnaryOperator<Integer> yearSalaryLambda in Nurses class
-//    Consumer<String> hurricane in PrivateClinic
-//    Function<> in RegionalHospital
 //    Consumer<Queue<Patients>> in Dentistry class
 //    Function <> in PrivateClinic class
 //    custom Ambulance<> in EmergencyHospital class
 //    custom CheckDentistry<> in Dentistry class
 //    custom NurseRetirement<> in Nurses class
+//    Consumer<String> hurricane in PrivateClinic
+//    Function<> in RegionalHospital
 
 
 
@@ -75,7 +78,6 @@ public class Main {
         Nurses nurse1 = new Nurses("Eliza", "Kowalska", 4, 300);
         System.out.println(nurse1);
         nurse1.calculatePayment();
-        System.out.println(nurse1.calculateYearlySalary());
 
 //        working with Dentistry class
         Dentistry dent1 = new Dentistry("Warsaw dentistry", address1, 300, 10);
@@ -145,7 +147,6 @@ public class Main {
         dent1.addPatient(childPatient1);
         System.out.println(dent1.removeAndReturnPatient());
         System.out.println("\nworking with Consumer Queue");
-        dent1.filterPatients();
 
 //        Working with privateClinicQueue collection
         System.out.println("\nWorking with privateClinicQueue collection");
@@ -153,9 +154,6 @@ public class Main {
         privateClinic1.addPatient(oldPatient2);
         privateClinic1.addPatient(childPatient1);
         System.out.println(privateClinic1.nextPatient());
-        System.out.println("\nWorking with Function<> lambda function");
-        privateClinic1.choosePatients();
-
 
 //        Working with TextCount class
         System.out.println("\nWorking with TextCount class");
@@ -175,24 +173,44 @@ public class Main {
 //        working with dentistryFilter lambda
         System.out.println("\nworking with dentistryFilter lambda");
         System.out.println("in dentistry " + dent1.getName() + " there are such patients with angina " + dent1.filterDentQueue(patient -> {
-            if (patient.getDisease() == Disease.ANGINA) {
-                return true;
-            }
-            return false;
+            return patient.getDisease() == Disease.ANGINA;
         }));
 
 //        working Predicate<Integer> isLarge in Hospice Class
         System.out.println("\nworking Predicate<Integer> isLarge in Hospice Class");
         hospice1.isLarge((integer) -> {
-            if (hospice1.getMaxPatientsNum() > 50) {
-                return true;
-            }
-            return false;
+            return hospice1.getMaxPatientsNum() > 50;
         });
 
-//        working with Supplier<> exampleEmergObj
+//        working with Supplier<> exampleEmergObj in EmergencyHospital class
         System.out.println("\nworking with Supplier<> in EmergencyHospital class");
         EmergencyHospital.createExampleObj(() -> new EmergencyHospital("ExampleName", new Address("Poland", "Warsaw", "ExampleStreet", 77), 99));
+
+//        working with UnaryOperator<> in Nurses class
+        System.out.println("\nworking with UnaryOperator<> in Nurses class");
+        System.out.println("Nurse " + nurse1.getName() + " have " +
+                nurse1.nurseRetirement((integer) -> 40 - nurse1.getExperience()) +
+                " years till retirement");
+
+//        working with Consumer<Queue<Patients>> in Dentistry class
+        System.out.println("\nworking with Consumer<Queue<Patients>> in Dentistry class");
+        dent1.filterPatients((patient) -> {
+            if (patient.getAddress().getCity().equals("Krakow")) {
+                System.out.println(patient);
+            }
+        });
+
+//        working with Function<> in PrivateClinic class
+        System.out.println("\nWorking with Function<> in PrivateClinic class");
+        privateClinic1.choosePatients(privateClinic -> {
+            List<Patients> chosenPatients = new ArrayList<>();
+            for (Patients p: privateClinic1.getPrivateClinicQueue()) {
+                if (p.getDisease() == Disease.ANGINA) {
+                    chosenPatients.add(p);
+                }
+            }
+            return chosenPatients;
+        });
 
 //        working with Ambulance<> in EmergencyHospital class
         System.out.println("\nworking with Ambulance<> in EmergencyHospital class");
@@ -201,10 +219,6 @@ public class Main {
 //        working with CheckDentistry<> in Dentistry class
         System.out.println("\nworking with CheckDentistry<> in Dentistry class");
         dent1.checkQueue();
-
-//        working with NurseRetirement<> in Nurses class
-        System.out.println("\nworking with NurseRetirement<> in Nurses class");
-        System.out.println("nurse " + nurse1.getName() + " has " + nurse1.nurseRetirement() + " years till retirement");
 
     }
 }

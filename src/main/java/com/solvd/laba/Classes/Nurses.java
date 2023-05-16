@@ -2,22 +2,17 @@ package com.solvd.laba.Classes;
 
 import com.solvd.laba.Interfaces.SalaryCalculator;
 
+import java.util.function.Supplier;
 import java.util.function.UnaryOperator;
-
-interface NurseRetirement<T, R> {
-    R apply(T t);
-}
 
 public class Nurses extends Staff implements SalaryCalculator {
     private int experience;
     private int standardSalary;
-    private UnaryOperator<Integer> yearSalaryLambda;
 
     public Nurses(String name, String surname, int experience, int standardSalary) {
         super(name, surname);
         this.experience = experience;
         this.standardSalary = standardSalary;
-        yearSalaryLambda = (exp) -> 12 * standardSalary * exp * 2;
     }
 
     public int getExperience() {
@@ -42,15 +37,8 @@ public class Nurses extends Staff implements SalaryCalculator {
         System.out.println("salary is " + payment + "$");
     }
 
-    public int calculateYearlySalary() {
-        return yearSalaryLambda.apply(experience);
-    }
-    public int nurseRetirement () {
-        NurseRetirement<Nurses, Integer> nurseRet = (Nurses nurse) -> {
-            int result = 40 - experience;
-            return result;
-        };
-        return nurseRet.apply(this);
+    public int nurseRetirement(UnaryOperator<Integer> retirement) {
+        return retirement.apply(experience);
     }
 
     @Override
