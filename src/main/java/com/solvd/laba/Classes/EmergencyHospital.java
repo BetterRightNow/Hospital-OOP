@@ -25,12 +25,10 @@ public class EmergencyHospital extends Hospital implements HospitalInformation {
         this.ambulancesNum = ambulancesNum;
     }
 
-    public static Supplier<EmergencyHospital> exampleEmergObj = () -> {
-        String exampleName = "exampleName";
-        Address exampleAddress = new Address("Poland", "ExampleCity", "ExampleStreet", 1);
-        int exampleAmbNub = 10;
-        return new EmergencyHospital(exampleName, exampleAddress, exampleAmbNub);
-    };
+    public static void createExampleObj (Supplier<EmergencyHospital> createExample) {
+        EmergencyHospital example = createExample.get();
+        System.out.println(example.name + " object was created");
+    }
 
     public String ambulanceTeam () {
         final int[] ambData = new int[3];

@@ -8,6 +8,7 @@ import com.solvd.laba.enums.*;
 
 import java.io.IOException;
 import java.util.function.Predicate;
+import java.util.function.Supplier;
 
 
 public class Main {
@@ -20,6 +21,7 @@ public class Main {
 //    Severity enum overrides processSeverity()
 //    RecordStatus enum contains String status field and toString()
 //    RecordType enum contains String recordReport field and processRecord()
+
 //    filterDentQueue method with interface and lambda function
 //    created Predicate<Integer> isLarge in Hospice Class
 //    created Supplier<EmergencyHospital> exampleEmergObj
@@ -62,16 +64,6 @@ public class Main {
 //        working with Hospice class
         Hospice hospice1 = new Hospice("Polish main Hospice", address1, 202);
         System.out.println(hospice1);
-        System.out.println(hospice1.isLarge(new Predicate<Integer>() {
-            @Override
-            public boolean test(Integer integer) {
-                if (hospice1.getMaxPatientsNum() > 50) {
-                    return true;
-                }
-                return false;
-            }
-        }));
-
 
 //        working with Doctors class
         Doctors doc1 = new Doctors("Robert", "Lewandowski", "Dentistry", 2, 500);
@@ -180,9 +172,27 @@ public class Main {
         System.out.println("\nworking with medical records");
         MedicalRecords medicalRecord = new MedicalRecords(Disease.ANGINA, RecordType.MEDICAL_HISTORY, Severity.MODERATE, RecordStatus.OPEN, childPatient2);
 
+//        working with dentistryFilter lambda
+        System.out.println("\nworking with dentistryFilter lambda");
+        System.out.println("in dentistry " + dent1.getName() + " there are such patients with angina " + dent1.filterDentQueue(patient -> {
+            if (patient.getDisease() == Disease.ANGINA) {
+                return true;
+            }
+            return false;
+        }));
+
+//        working Predicate<Integer> isLarge in Hospice Class
+        System.out.println("\nworking Predicate<Integer> isLarge in Hospice Class");
+        hospice1.isLarge((integer) -> {
+            if (hospice1.getMaxPatientsNum() > 50) {
+                return true;
+            }
+            return false;
+        });
+
 //        working with Supplier<> exampleEmergObj
         System.out.println("\nworking with Supplier<> in EmergencyHospital class");
-        System.out.println(EmergencyHospital.exampleEmergObj.get());
+        EmergencyHospital.createExampleObj(() -> new EmergencyHospital("ExampleName", new Address("Poland", "Warsaw", "ExampleStreet", 77), 99));
 
 //        working with Ambulance<> in EmergencyHospital class
         System.out.println("\nworking with Ambulance<> in EmergencyHospital class");
@@ -196,13 +206,5 @@ public class Main {
         System.out.println("\nworking with NurseRetirement<> in Nurses class");
         System.out.println("nurse " + nurse1.getName() + " has " + nurse1.nurseRetirement() + " years till retirement");
 
-//        working with dentistryFilter lambda
-        System.out.println("\nworking with dentistryFilter lambda");
-        System.out.println("in dentistry " + dent1.getName() + " there are such patients with angina " + dent1.filterDentQueue(patient -> {
-            if (patient.getDisease() == Disease.ANGINA) {
-                return true;
-            }
-            return false;
-        }));
     }
 }

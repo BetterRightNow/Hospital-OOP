@@ -21,9 +21,12 @@ public class Hospice extends Hospital implements HospitalInformation {
         this.maxPatientsNum = maxPatientsNum;
     }
 
-    public boolean isLarge (Predicate<Integer> checkLarge) {
-        if (checkLarge.test(maxPatientsNum)) return true;
-        return false;
+    public void isLarge (Predicate<Integer> checkLarge) {
+        if (checkLarge.test(maxPatientsNum)) {
+            System.out.println(name + " is large");
+        } else {
+            System.out.println(name + " is small");
+        }
     }
 
     @Override
