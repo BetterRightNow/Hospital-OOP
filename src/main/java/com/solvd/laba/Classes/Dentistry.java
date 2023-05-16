@@ -1,6 +1,7 @@
 package com.solvd.laba.Classes;
 
 import com.solvd.laba.Exceptions.InvalidCountryException;
+import com.solvd.laba.Interfaces.CheckDentistry;
 import com.solvd.laba.Interfaces.DentistryFilter;
 
 import java.util.ArrayList;
@@ -8,10 +9,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 import java.util.function.Consumer;
-
-interface CheckDentistry<T> {
-    void apply(T t);
-}
 
 public class Dentistry extends Hospital {
     private int doctorsFee;
@@ -43,6 +40,14 @@ public class Dentistry extends Hospital {
         this.doctorsFee = doctorsFee;
     }
 
+    public Queue<Patients> getDentistryQueue() {
+        return dentistryQueue;
+    }
+
+    public void setDentistryQueue(Queue<Patients> dentistryQueue) {
+        this.dentistryQueue = dentistryQueue;
+    }
+
     public void addPatient (Patients patient) {
         dentistryQueue.offer(patient);
     }
@@ -58,16 +63,19 @@ public class Dentistry extends Hospital {
 
     }
 
-    public void checkQueue () {
-        CheckDentistry<Dentistry> checkDent = (Dentistry dentistry) -> {
-            int freePlaces = maxPatientsInQueue - dentistryQueue.size();
-            if (dentistryQueue.size() > maxPatientsInQueue) {
-                System.out.println("The queue at dentistry " + dentistry.name + " is overcrowded");
-            } else {
-                System.out.println("The queue at dentistry " + dentistry.name + " is ok, number of free places is " + freePlaces);
-            }
-        };
-        checkDent.apply(this);
+    public void checkQueue (CheckDentistry<Dentistry> checkDent) {
+        checkDent.check(this);
+
+
+        //        CheckDentistry<Dentistry> checkDent = (Dentistry dentistry) -> {
+//            int freePlaces = maxPatientsInQueue - dentistryQueue.size();
+//            if (dentistryQueue.size() > maxPatientsInQueue) {
+//                System.out.println("The queue at dentistry " + dentistry.name + " is overcrowded");
+//            } else {
+//                System.out.println("The queue at dentistry " + dentistry.name + " is ok, number of free places is " + freePlaces);
+//            }
+//        };
+//        checkDent.apply(this);
     }
 
     public List<Patients> filterDentQueue (DentistryFilter filteredPatient) {

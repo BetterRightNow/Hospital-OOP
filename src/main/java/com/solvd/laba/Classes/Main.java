@@ -176,9 +176,7 @@ public class Main {
 
 //        working Predicate<Integer> isLarge in Hospice Class
         System.out.println("\nworking Predicate<Integer> isLarge in Hospice Class");
-        hospice1.isLarge((integer) -> {
-            return hospice1.getMaxPatientsNum() > 50;
-        });
+        hospice1.isLarge((integer) -> hospice1.getMaxPatientsNum() > 50);
 
 //        working with Supplier<> exampleEmergObj in EmergencyHospital class
         System.out.println("\nworking with Supplier<> in EmergencyHospital class");
@@ -215,13 +213,21 @@ public class Main {
         emergencyHospital1.ambulanceTeam(hospital -> {
             return "The ambulance team of " + emergencyHospital1.getName() +
                     " consists of " + emergencyHospital1.getAmbulancesNum() + " drivers, "
-                    + emergencyHospital1.getAmbulancesNum() + " doctros and " +
+                    + emergencyHospital1.getAmbulancesNum() + " doctors and " +
                     (emergencyHospital1.getAmbulancesNum() * 2) + " nurses";
         });
 
 //        working with CheckDentistry<> in Dentistry class
         System.out.println("\nworking with CheckDentistry<> in Dentistry class");
-        dent1.checkQueue();
+        dent1.checkQueue((dentQueue) -> {
+            if (dent1.getDentistryQueue().size() < dent1.getMaxPatientsInQueue()) {
+                System.out.println("queue of  " + dent1.getName() +
+                        " is ok, number of free places is " +
+                        (dent1.getMaxPatientsInQueue() - dent1.getDentistryQueue().size()));
+            } else {
+                System.out.println("queue of  " + dent1.getName() + "is overcrowded");
+            }
+        });
 
     }
 }

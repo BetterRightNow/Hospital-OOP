@@ -27,8 +27,8 @@ public class EmergencyHospital extends Hospital implements HospitalInformation {
         System.out.println(example.name + " object was created");
     }
 
-    public void ambulanceTeam (Ambulance<EmergencyHospital, String> teamfilter) {
-        System.out.println(teamfilter.printTeam(this));
+    public void ambulanceTeam (Ambulance<EmergencyHospital, String> teamFilter) {
+        System.out.println(teamFilter.printTeam(this));
     }
 
     @Override
