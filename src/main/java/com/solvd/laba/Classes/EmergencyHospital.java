@@ -1,13 +1,10 @@
 package com.solvd.laba.Classes;
 
 import com.solvd.laba.Exceptions.InvalidCountryException;
+import com.solvd.laba.Interfaces.Ambulance;
 import com.solvd.laba.Interfaces.HospitalInformation;
 
 import java.util.function.Supplier;
-
-interface Ambulance<T, R> {
-    R apply(T t);
-}
 
 public class EmergencyHospital extends Hospital implements HospitalInformation {
     private int ambulancesNum;
@@ -30,19 +27,8 @@ public class EmergencyHospital extends Hospital implements HospitalInformation {
         System.out.println(example.name + " object was created");
     }
 
-    public String ambulanceTeam () {
-        final int[] ambData = new int[3];
-        Ambulance<EmergencyHospital, String> amb = (EmergencyHospital hospital) -> {
-            ambData[0] = ambulancesNum;
-            ambData[1] = ambulancesNum * 2;
-            ambData[2] = ambulancesNum;
-            String ambTeam = "Ambulance team is " +
-                    ambData[0] + " drivers, " +
-                    ambData[1] + " nurses and " +
-                    ambData[2] + " doctors.";
-            return ambTeam;
-        };
-        return amb.apply(this);
+    public void ambulanceTeam (Ambulance<EmergencyHospital, String> teamfilter) {
+        System.out.println(teamfilter.printTeam(this));
     }
 
     @Override

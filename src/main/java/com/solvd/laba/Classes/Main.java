@@ -172,9 +172,7 @@ public class Main {
 
 //        working with dentistryFilter lambda
         System.out.println("\nworking with dentistryFilter lambda");
-        System.out.println("in dentistry " + dent1.getName() + " there are such patients with angina " + dent1.filterDentQueue(patient -> {
-            return patient.getDisease() == Disease.ANGINA;
-        }));
+        System.out.println("in dentistry " + dent1.getName() + " there are such patients with angina " + dent1.filterDentQueue(patient -> patient.getDisease() == Disease.ANGINA));
 
 //        working Predicate<Integer> isLarge in Hospice Class
         System.out.println("\nworking Predicate<Integer> isLarge in Hospice Class");
@@ -214,7 +212,12 @@ public class Main {
 
 //        working with Ambulance<> in EmergencyHospital class
         System.out.println("\nworking with Ambulance<> in EmergencyHospital class");
-        System.out.println(emergencyHospital1.ambulanceTeam());
+        emergencyHospital1.ambulanceTeam(hospital -> {
+            return "The ambulance team of " + emergencyHospital1.getName() +
+                    " consists of " + emergencyHospital1.getAmbulancesNum() + " drivers, "
+                    + emergencyHospital1.getAmbulancesNum() + " doctros and " +
+                    (emergencyHospital1.getAmbulancesNum() * 2) + " nurses";
+        });
 
 //        working with CheckDentistry<> in Dentistry class
         System.out.println("\nworking with CheckDentistry<> in Dentistry class");
