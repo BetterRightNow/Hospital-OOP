@@ -1,6 +1,7 @@
 package com.solvd.laba.Classes;
 
 import com.solvd.laba.Exceptions.InvalidCountryException;
+import com.solvd.laba.Interfaces.CheckOldness;
 import com.solvd.laba.Interfaces.HospitalInformation;
 import com.solvd.laba.enums.Disease;
 
@@ -54,6 +55,10 @@ public class PrivateClinic extends Hospital implements HospitalInformation {
     public void destroy () {
         Consumer<String> hurricane = (name) -> System.out.println(name + " was destroyed with hurricane");
         hurricane.accept(getName());
+    }
+
+    public <C> void checkOldPatients(CheckOldness<PrivateClinic, Patients, C> checkIfOld, C collection) {
+        checkIfOld.checkOld(this, privateClinicQueue, collection);
     }
 
     public void addPatient(Patients patient) {

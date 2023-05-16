@@ -1,5 +1,5 @@
 package com.solvd.laba.Interfaces;
 
-public interface Ambulance <T, R> {
+public interface PrintTeam<T, R> {
     R printTeam(T t);
 }

@@ -31,9 +31,10 @@ public class Main {
 //    created UnaryOperator<Integer> yearSalaryLambda in Nurses class
 //    Consumer<Queue<Patients>> in Dentistry class
 //    Function <> in PrivateClinic class
-//    custom Ambulance<> in EmergencyHospital class
+//    custom PrintTeam<> in EmergencyHospital class
 //    custom CheckDentistry<> in Dentistry class
-//    custom NurseRetirement<> in Nurses class
+//    created CheckOldness<> in PrivateClinic class
+
 //    Consumer<String> hurricane in PrivateClinic
 //    Function<> in RegionalHospital
 
@@ -209,7 +210,7 @@ public class Main {
         });
 
 //        working with Ambulance<> in EmergencyHospital class
-        System.out.println("\nworking with Ambulance<> in EmergencyHospital class");
+        System.out.println("\nworking with PrintTeam<> in EmergencyHospital class");
         emergencyHospital1.ambulanceTeam(hospital -> {
             return "The ambulance team of " + emergencyHospital1.getName() +
                     " consists of " + emergencyHospital1.getAmbulancesNum() + " drivers, "
@@ -228,6 +229,18 @@ public class Main {
                 System.out.println("queue of  " + dent1.getName() + "is overcrowded");
             }
         });
+
+//        working with CheckOldness<> in PrivateClinic class
+        System.out.println("\n working with CheckOldness<> in PrivateClinic class");
+        List<Patients> oldCollection = new ArrayList<>();
+        privateClinic1.checkOldPatients((clinic, patients, collection) -> {
+            for (Patients p : patients) {
+                if (p instanceof OldPatient) {
+                    oldCollection.add(p);
+                }
+            }
+        }, oldCollection);
+        System.out.println(oldCollection);
 
     }
 }

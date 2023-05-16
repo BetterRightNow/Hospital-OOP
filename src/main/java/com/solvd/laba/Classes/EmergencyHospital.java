@@ -1,7 +1,7 @@
 package com.solvd.laba.Classes;
 
 import com.solvd.laba.Exceptions.InvalidCountryException;
-import com.solvd.laba.Interfaces.Ambulance;
+import com.solvd.laba.Interfaces.PrintTeam;
 import com.solvd.laba.Interfaces.HospitalInformation;
 
 import java.util.function.Supplier;
@@ -27,7 +27,7 @@ public class EmergencyHospital extends Hospital implements HospitalInformation {
         System.out.println(example.name + " object was created");
     }
 
-    public void ambulanceTeam (Ambulance<EmergencyHospital, String> teamFilter) {
+    public void ambulanceTeam (PrintTeam<EmergencyHospital, String> teamFilter) {
         System.out.println(teamFilter.printTeam(this));
     }
 
