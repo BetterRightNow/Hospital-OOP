@@ -89,8 +89,6 @@ public class Main {
         NonMedicalStaff driver1 = new NonMedicalStaff("John", "Doe", StaffType.DRIVER, 2, 200);
         System.out.println(driver1);
         driver1.calculatePayment();
-        StaffType driver = driver1.getStaffType();
-        driver.vacation();
 
 
 //        working with Drugs Class
@@ -147,7 +145,6 @@ public class Main {
         dent1.addPatient(oldPatient2);
         dent1.addPatient(childPatient1);
         System.out.println(dent1.removeAndReturnPatient());
-        System.out.println("\nworking with Consumer Queue");
 
 //        Working with privateClinicQueue collection
         System.out.println("\nWorking with privateClinicQueue collection");
@@ -162,6 +159,12 @@ public class Main {
 
 //        Working with UniqueWordsCount class
         UniqueWordsCount.countUniqueWords("src/main/resources/words.txt");
+
+//        working with vacation() method in Enum StaffType
+        System.out.println("\nworking with vacation() method in Enum StaffType");
+        StaffType driver = driver1.getStaffType();
+        driver.vacation();
+
 
 //        Operations class and OperationType enum
         System.out.println("\nworking with Operations class");
