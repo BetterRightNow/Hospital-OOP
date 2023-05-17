@@ -15,7 +15,6 @@ public class Doctors extends Staff implements SalaryCalculator {
     public Doctors(String name, String surname, String discipline, int doctorsCategory, int standardSalary) throws InvalidSalaryInput {
         super(name, surname);
         Configurator.initialize(null, "log4j2.xml");
-        salaryLogger.info("Application started");
         if (doctorsCategory > 6 || doctorsCategory < 1) {
             salaryLogger.error("Invalid input of doctors category. Acceptable only from 1 to 6");
             throw new InvalidSalaryInput("Doctors category could be from 1 to 6");
