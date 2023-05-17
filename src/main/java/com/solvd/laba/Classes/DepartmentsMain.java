@@ -4,6 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.core.config.Configurator;
 
+import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -49,12 +50,25 @@ public class DepartmentsMain {
         List<Doctors> sortedDoctors =  surgicalDepartment1.returnSurgeons().
                 stream().sorted(Comparator.comparingInt(Doctors::getDoctorsCategory)).toList();
 
+//        working with terminal stream method count
+        long doctorsNum = surgicalDepartment1.returnSurgeons().
+                stream().count();
+
+//        working with terminal stream method forEach
+        surgicalDepartment1.returnSurgeons().
+                stream().forEach(System.out::println);
+
+//        working with terminal stream method reduce
+        String surnames = surgicalDepartment1.returnSurgeons().stream().
+                map(Doctors::getSurname).reduce((a , b) -> a + ", " + b).orElse("");
 
 //        logger output
         departmentsLogger.info(
                 "\nworking with non-terminal stream method filter\n" + filteredDoctors +
                 "\n\nworking with non-terminal stream method map\n" + doctorsStandardSalaryCollection +
                 "\n\nworking with non-terminal stream method mapToInt\n" + avgStandardSalary +
-                "\n\nworking with non-terminal stream method sorted\n" + sortedDoctors);
+                "\n\nworking with non-terminal stream method sorted\n" + sortedDoctors +
+                "\n\nworking with terminal stream method count\n" + doctorsNum +
+                "\n\nworking with terminal stream method reduce\n" + surnames);
     }
 }
