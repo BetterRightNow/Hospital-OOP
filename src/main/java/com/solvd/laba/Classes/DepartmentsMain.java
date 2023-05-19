@@ -4,13 +4,17 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.core.config.Configurator;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class DepartmentsMain {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, IllegalAccessException, InstantiationException, NoSuchFieldException {
 
 //        initializing the Logger
         Logger departmentsLogger = LogManager.getLogger();
@@ -70,5 +74,43 @@ public class DepartmentsMain {
                 "\n\nworking with non-terminal stream method sorted\n" + sortedDoctors +
                 "\n\nworking with terminal stream method count\n" + doctorsNum +
                 "\n\nworking with terminal stream method reduce\n" + surnames);
+
+
+//        working with Reflection
+
+        Class surgicalClass = Class.forName("com.solvd.laba.Classes.SurgicalDepartment");
+
+        //        all methods of SurgicalDepartment class
+        List<String> methodNames = Stream.of(surgicalClass.getMethods()).map(Method::getName).toList();
+
+//        declared methods of SurgicalDepartment class
+        List<String> declaredMethodNames = Stream.of(surgicalClass.getDeclaredMethods()).
+                map(Method::getName).toList();
+
+//        working with setAvailableOperatingRooms method of SurgicalDepartment class
+        SurgicalDepartment surgDep1 = new SurgicalDepartment("surgDep1", 12);
+        Method setDep = surgicalClass.getDeclaredMethod("setAvailableOperatingRooms", int.class);
+        setDep.invoke(surgDep1, 10);
+
+//        creating new testSurgObj object of SurgicalDepartment class
+        SurgicalDepartment surgicalObj = (SurgicalDepartment)
+                surgicalClass.getDeclaredConstructor(String.class, int.class).
+                        newInstance("testSurgObj", 3);
+
+
+        departmentsLogger.info("\n\nall methods of SurgicalDepartment class\n" + methodNames +
+                "\n\ndeclared methods of SurgicalDepartment class\n" + declaredMethodNames +
+                "\n\nworking with setAvailableOperatingRooms method of SurgicalDepartment class\n" + surgDep1 +
+                "\n\ncreating new testSurgObj object of SurgicalDepartment class\n" + surgicalObj + "\n");
+
+
+
+//        changing the availableOperatingRooms value of field SurgicalDepartment class
+        Field operationField = surgicalClass.getDeclaredField("availableOperatingRooms");
+        operationField.setAccessible(true);
+        operationField.set(surgDep1, 20);
+
+        departmentsLogger.info("\n\nchanging the availableOperatingRooms " +
+                "value of field SurgicalDepartment class\n" + surgDep1);
     }
 }
