@@ -12,6 +12,10 @@ public class SurgicalDepartment extends Departments{
         this.availableOperatingRooms = availableOperatingRooms;
     }
 
+    public void setAvailableOperatingRooms(int availableOperatingRooms) {
+        this.availableOperatingRooms = availableOperatingRooms;
+    }
+
     public void addSurgeons (Doctors doctor) {
         surgeons.add(doctor);
     }
@@ -19,4 +23,10 @@ public class SurgicalDepartment extends Departments{
         return surgeons;
     }
 
+    @Override
+    public String toString() {
+        return "SurgicalDepartment{" +
+                "availableOperatingRooms=" + availableOperatingRooms +
+                '}';
+    }
 }
