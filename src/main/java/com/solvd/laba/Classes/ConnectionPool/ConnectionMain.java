@@ -1,7 +1,8 @@
-package com.solvd.laba.Classes;
+package com.solvd.laba.Classes.ConnectionPool;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -15,7 +16,7 @@ public class ConnectionMain {
         int numConnections = 7;
 
         Logger connectionLogger = LogManager.getLogger();
-        connectionLogger.info("\nConnectionTest launched");
+        connectionLogger.info("\nConnection test launched");
 
         ExecutorService executorService = Executors.newFixedThreadPool(poolSize);
         for (int i = 0; i < numConnections; i++) {
