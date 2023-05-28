@@ -1,9 +1,9 @@
-package com.solvd.laba.Classes.FutureConnection;
+package com.solvd.laba.classes.futureConnection;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.*;
-import com.solvd.laba.Classes.ConnectionPool.Connection;
+import com.solvd.laba.classes.connectionPool.Connection;
 
 public class FutureConnectionPool {
     private BlockingQueue<Connection> connections;

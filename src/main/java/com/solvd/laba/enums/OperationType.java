@@ -1,7 +1,7 @@
 package com.solvd.laba.enums;
 
-import com.solvd.laba.Classes.Operations;
-import com.solvd.laba.Classes.Patients;
+import com.solvd.laba.classes.Operations;
+import com.solvd.laba.classes.Patients;
 
 public enum OperationType {
     SURGERY {

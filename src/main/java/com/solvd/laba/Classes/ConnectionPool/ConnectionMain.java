@@ -1,4 +1,4 @@
-package com.solvd.laba.Classes.ConnectionPool;
+package com.solvd.laba.classes.connectionPool;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

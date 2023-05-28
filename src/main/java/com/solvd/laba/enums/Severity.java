@@ -1,7 +1,5 @@
 package com.solvd.laba.enums;
 
-import com.solvd.laba.Classes.Patients;
-
 public enum Severity {
     MILD {
         @Override

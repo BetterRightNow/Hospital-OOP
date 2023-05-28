@@ -1,4 +1,4 @@
-package com.solvd.laba.Classes.ConnectionPool;
+package com.solvd.laba.classes.connectionPool;
 
 import java.util.concurrent.*;
 
